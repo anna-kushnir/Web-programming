@@ -50,6 +50,7 @@ ul.ul-1 {
 #white-box {
     grid-row: 1/4;
     background-color: rgb(244, 183, 244);
+    min-width: 5px;
 }
 #second-box {
     grid-row: 1/2;
@@ -74,22 +75,22 @@ ul.ul-1 {
 #y-box {
     margin: auto;
 }
-#x-box > p {
+#x-box > h3 {
     background-color: lavenderblush;
     color: blueviolet;
-    font-size: large;
     border: 2px;
     border-bottom-style: solid;
     border-right-style: solid;
-    padding: 10px;
+    padding: 7px;
 }
-#y-box > p {
+#y-box > h3 {
     background-color: lavenderblush;
     color: rgb(108, 16, 195);
+    font-size: medium;
     border: 2px;
     border-top-style: solid;
     border-left-style: solid;
-    padding: 10px;
+    padding: 7px;
 }
 #second-box > p {
     text-align: right;
