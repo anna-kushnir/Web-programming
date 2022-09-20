@@ -26,8 +26,12 @@ ul.ul-1 {
     padding: 0;
 }
 ol {
-    text-align: left;
     list-style-type: upper-roman;
+}
+ol.ol-1 {
+    text-align: left;
+    list-style-position: inside;
+    list-style-type:square;
 }
 
 .container {
