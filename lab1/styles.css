@@ -1,0 +1,82 @@
+html {
+    height: 100%
+}
+
+body {
+    display: flex;
+    min-height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-family: Garamond, serif;
+    background-color: lavenderblush;
+}
+
+.container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 3fr 1fr 8fr;
+    grid-template-rows: 1fr 3fr 1fr;
+    gap: 3px;
+    padding: 3px;
+}
+
+.item {
+    background-color:  blueviolet;
+    text-align: center;
+}
+#first-box {
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+#white-box {
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    background-color: rgb(244, 183, 244);
+}
+#second-box {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+#third-box {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+#forth-box {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+#fifth-box {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+
+p {
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+a {
+    text-decoration: none;
+}
+
+#x-text {
+    background-color: lavenderblush;
+    color: blueviolet;
+}
+#y-text {
+    background-color: lavender;
+    color: rgb(108, 16, 195);
+}
