@@ -27,10 +27,10 @@ ul.ul-1 {
 }
 ol {
     list-style-type: upper-roman;
+    list-style-position: inside;
 }
 ol.ol-1 {
     text-align: left;
-    list-style-position: inside;
     list-style-type:square;
 }
 
