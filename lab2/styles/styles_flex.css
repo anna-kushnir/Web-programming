@@ -1,0 +1,123 @@
+html {
+    height: 100%
+}
+body {
+    display: flex;
+    min-height: 98%;
+    justify-content: center;
+    font-family: Garamond, serif;
+    background-color: lavenderblush;
+}
+div, p {
+    text-align: center;
+    letter-spacing: 2px;
+}
+a {
+    text-decoration: none;
+}
+
+ul.ul-base {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+ul.ul-1 {
+    margin: 2;
+    padding: 0;
+}
+
+.flex-container {
+    display: flex;
+    width: 100%;
+    gap: 3px;
+    padding: 3px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.item {
+    background-color: lavender;
+    color: rgb(103, 18, 182);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dotted black;
+}
+
+#c-1-4 {
+    flex: 25%;
+}
+#c-0 {
+    flex: 8%;
+}
+#c-2-3-5 {
+    flex: 67%
+}
+
+#first-box {
+    flex: 80%;
+}
+#white-box {
+    flex: 100%;
+    background-color: rgb(244, 183, 244);
+    min-width: 5px;
+}
+#second-box {
+    flex: 20%;
+}
+#third-box {
+    flex: 60%;
+}
+#forth-box {
+    flex: 20%;
+}
+#fifth-box {
+    flex: 20%;
+}
+
+#x-box {
+    margin: auto;
+    margin-left: 3%;
+}
+#y-box {
+    margin: auto;
+    margin-right: 3%;
+}
+#x-box > h3 {
+    background-color: lavenderblush;
+    color: blueviolet;
+    border: 2px;
+    border-bottom-style: solid;
+    border-right-style: solid;
+    padding: 7px;
+}
+#y-box > h3 {
+    background-color: lavenderblush;
+    color: rgb(108, 16, 195);
+    font-size: medium;
+    border: 2px;
+    border-top-style: solid;
+    border-left-style: solid;
+    padding: 7px;
+}
+#second-box > p {
+    text-align: right;
+}
+#fifth-box > p {
+    text-align: left;
+}
+
+#first-box > p, #third-box > p, #forth-box > p {
+    margin-left: 3%;
+    margin-right: 3%;
+}
+#second-box > p, #fifth-box > p {
+    margin-left: 5%;
+    margin-right: 5%;
+}
