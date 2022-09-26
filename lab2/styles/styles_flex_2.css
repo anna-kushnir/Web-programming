@@ -1,0 +1,119 @@
+html {
+    height: 100%;
+    text-align: center;
+    letter-spacing: 2px;
+}
+body {
+    display: flex;
+    min-height: 98%;
+    min-width: 650px;
+    justify-content: center;
+    font-family: Garamond, serif;
+    background-color: lavenderblush;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style-type: none;
+    margin: 2;
+    padding: 0;
+}
+
+.flex-container {
+    display: flex;
+    width: 100%;
+    gap: 5px;
+    padding: 3px;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.item {
+    background-color: lavender;
+    color: rgb(103, 18, 182);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dotted black;
+}
+
+#first-box {
+    flex: 25%;
+    max-width: 370px;
+}
+#white-box {
+    flex: 6%;
+    background-color: rgb(244, 183, 244);
+    min-width: 5px;
+    max-width: 110px;
+}
+#c-2-3 {
+    flex: 65%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 400px;
+}
+#c-4-0-5 {
+    flex: 100%;
+    display: flex;
+    gap: 5px;
+}
+
+#second-box {
+    flex: 25%;
+}
+#third-box {
+    flex: 75%;
+}
+#forth-box {
+    flex: 25%;
+    max-width: 370px;
+}
+#fifth-box {
+    flex: 65%;
+    min-width: 400px;
+}
+
+#x-box {
+    margin: auto;
+    margin-left: 3%;
+}
+#y-box {
+    margin: auto;
+    margin-right: 3%;
+}
+#x-box > h3 {
+    background-color: lavenderblush;
+    color: blueviolet;
+    border: 2px;
+    border-bottom-style: solid;
+    border-right-style: solid;
+    padding: 7px;
+}
+#y-box > h3 {
+    background-color: lavenderblush;
+    color: rgb(108, 16, 195);
+    font-size: medium;
+    border: 2px;
+    border-top-style: solid;
+    border-left-style: solid;
+    padding: 7px;
+}
+#second-box > p {
+    text-align: right;
+}
+#fifth-box > p {
+    text-align: left;
+}
+
+#first-box > p, #third-box > p, #forth-box > p {
+    margin-left: 3%;
+    margin-right: 3%;
+}
+#second-box > p, #fifth-box > p {
+    margin-left: 3%;
+    margin-right: 3%;
+}
