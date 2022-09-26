@@ -45,12 +45,12 @@ ul {
 #x-box {
     border: none;
     margin: auto;
-    margin-left: 15px;
+    padding-left: 15px;
 }
 #y-box {
     border: none;
     margin: auto;
-    margin-right: 15px;
+    padding-right: 15px;
 }
 #x-box > h3 {
     background-color: lavenderblush;
