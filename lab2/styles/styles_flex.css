@@ -4,6 +4,7 @@ html {
 body {
     display: flex;
     min-height: 98%;
+    min-width: fit-content;
     justify-content: center;
     font-family: Garamond, serif;
     background-color: lavenderblush;
@@ -75,6 +76,7 @@ ul {
 }
 #fifth-box {
     flex: 20%;
+    min-width: 400px;
 }
 
 #x-box {
@@ -114,6 +116,6 @@ ul {
     margin-right: 3%;
 }
 #second-box > p, #fifth-box > p {
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 3%;
+    margin-right: 3%;
 }

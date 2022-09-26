@@ -4,6 +4,7 @@ html {
 body {
     display: grid;
     min-height: 98%;
+    min-width: fit-content;
     font-family: Garamond, serif;
     background-color: lavenderblush;
 }
@@ -61,7 +62,7 @@ ul {
 #fifth-box {
     grid-area: 3/3/4/4;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 3fr 1fr;
 }
 
 #x-box {
@@ -101,6 +102,6 @@ ul {
     margin-right: 3%;
 }
 #second-box > p, #fifth-box > p {
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 3%;
+    margin-right: 3%;
 }

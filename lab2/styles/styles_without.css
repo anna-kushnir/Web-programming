@@ -5,6 +5,7 @@ html {
 }
 body {
     width: 1200;
+    min-width: fit-content;
     margin: 0 auto;
     font-family: Garamond, serif;
     background-color: lavenderblush;
@@ -38,7 +39,7 @@ ul {
 .item {
     background-color: lavender;
     border: 2px dotted black;
-    padding: 5px;
+    padding: 2px;
 }
 
 #x-box {
@@ -80,5 +81,5 @@ ul {
     margin-right: 3%;
 }
 #second-box-p, #fifth-box-p {
-    padding: 5px;
+    padding: 0 3%;
 }
