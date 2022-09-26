@@ -16,12 +16,8 @@ a {
     text-decoration: none;
 }
 
-ul.ul-base {
+ul {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-ul.ul-1 {
     margin: 2;
     padding: 0;
 }
@@ -29,7 +25,7 @@ ul.ul-1 {
 .flex-container {
     display: flex;
     width: 100%;
-    gap: 3px;
+    gap: 5px;
     padding: 3px;
     justify-content: center;
     align-items: stretch;
@@ -38,7 +34,7 @@ ul.ul-1 {
 .container {
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 5px;
 }
 
 .item {

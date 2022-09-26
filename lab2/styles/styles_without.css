@@ -1,0 +1,84 @@
+html {
+    height: 100%;
+    text-align: center;
+    letter-spacing: 2px;
+}
+body {
+    width: 1200;
+    margin: 0 auto;
+    font-family: Garamond, serif;
+    background-color: lavenderblush;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style-type: none;
+    margin: 2;
+    padding: 0;
+}
+
+#main {
+    width: 1200;
+    height: 1000;
+    background-color: lavenderblush;
+    color: rgb(103, 18, 182);
+    border-spacing: 5px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+#white-box {
+    background-color: rgb(244, 183, 244);
+    min-width: 5px;
+    width: 120px;
+    border: 2px dotted black;
+    height: 700px;
+}
+
+.item {
+    background-color: lavender;
+    border: 2px dotted black;
+    padding: 5px;
+}
+
+#x-box {
+    border: none;
+    margin: auto;
+    margin-left: 15px;
+}
+#y-box {
+    border: none;
+    margin: auto;
+    margin-right: 15px;
+}
+#x-box > h3 {
+    background-color: lavenderblush;
+    color: blueviolet;
+    border: 2px;
+    border-bottom-style: solid;
+    border-right-style: solid;
+    padding: 7px;
+}
+#y-box > h3 {
+    background-color: lavenderblush;
+    color: rgb(108, 16, 195);
+    font-size: medium;
+    border: 2px;
+    border-top-style: solid;
+    border-left-style: solid;
+    padding: 7px;
+}
+
+#second-box-p {
+    text-align: right;
+}
+#fifth-box-p {
+    text-align: left;
+}
+#first-box > p, #third-box > p, #forth-box > p {
+    margin-left: 3%;
+    margin-right: 3%;
+}
+#second-box-p, #fifth-box-p {
+    padding: 5px;
+}
