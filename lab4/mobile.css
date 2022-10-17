@@ -1,0 +1,135 @@
+html {
+    width: 100%;
+}
+body {
+    width: 100%;
+    min-width: fit-content;
+    display: flex;
+    flex-direction: column;
+    min-height: 98%;
+    margin: 0;
+    font-family: 'Calibri', sans-serif;
+    background-color:rgb(231, 240, 248);
+}
+/* a {
+    text-decoration: none;
+}
+a:link {
+    color: black;
+}
+a:visited {
+    color: black;
+}
+a:hover {
+    color: rgb(255, 166, 0);
+}
+a:active {
+    color: white;
+} */
+button {
+    background-color: rgb(231, 240, 248);
+    border: 2px solid black;
+    padding: 10px 30px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: black;
+    border: 2px solid black;
+    padding: 10px 30px;
+    letter-spacing: 2px;
+    color: white;
+}
+
+header {
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+#logo {
+    padding-right: 100px;
+}
+#menu-icon {
+    padding-left: 100px;
+}
+#menu {
+    display: none;
+}
+/* #refs {
+    margin: 7px;
+    padding: 7px;
+} */
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 25px;
+    justify-content: center;
+    align-items: center;
+}
+#left-part {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+}
+#man {
+    width: 280px;
+    align-self: flex-end;
+    padding-bottom: 25px;
+}
+#group {
+    width: 230px;
+    align-self: flex-start;
+    padding-bottom: 25px;
+}
+#right-part {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+#right-part > p {
+    width: 230px;
+    font-size: 15px;
+    padding: 7px 0;
+}
+#building {
+    max-width: 230px;
+    height: 350px;
+}
+#text-block {
+    position: absolute;
+    top: 45px;
+    left: 50px;
+    background-color: white;
+    padding: 5px 20px 70px 20px;
+    width: 210px;
+}
+#text-block > h1 {
+    font-family: sans-serif;
+    font-size:x-large
+}
+#text-block > p {
+    font-size: 18px;
+}
+
+footer {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(39, 37, 37);
+    color: white;
+    font-size: small;
+    text-align: center;
+}
+footer > p {
+    max-width: 300px;
+    font-size: 14px;
+}

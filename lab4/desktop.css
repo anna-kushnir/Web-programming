@@ -38,6 +38,7 @@ button:hover {
     letter-spacing: 2px;
     color: white;
 }
+
 header {
     padding: 15px;
     display: flex;
@@ -47,6 +48,9 @@ header {
 }
 #logo {
     padding-right: 80px;
+}
+#menu-icon {
+    display: none;
 }
 #menu {
     justify-items: center;
@@ -69,7 +73,11 @@ main {
     padding-right: 25px;
 }
 #man {
+    width: 210px;
     padding: 80px 0 25px 0;
+}
+#group {
+    width: 320px;
 }
 #right-part {
     display: flex;
@@ -84,8 +92,7 @@ main {
     padding: 7px 0;
 }
 #building {
-    position: relative;
-
+    width: 360px;
 }
 #text-block {
     position: absolute;
