@@ -9,21 +9,7 @@ body {
     font-family: 'Calibri', sans-serif;
     background-color:rgb(231, 240, 248);
 }
-/* a {
-    text-decoration: none;
-}
-a:link {
-    color: black;
-}
-a:visited {
-    color: black;
-}
-a:hover {
-    color: rgb(255, 166, 0);
-}
-a:active {
-    color: white;
-} */
+
 button {
     background-color: rgb(231, 240, 248);
     border: 2px solid black;
