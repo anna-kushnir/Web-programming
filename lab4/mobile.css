@@ -38,6 +38,7 @@ header {
 }
 #menu-icon {
     padding-left: 110px;
+    cursor: pointer;
 }
 #menu {
     display: none;
@@ -61,7 +62,7 @@ main {
     padding-bottom: 25px;
 }
 #group {
-    width: 230px;
+    width: 240px;
     align-self: flex-start;
     padding-bottom: 25px;
 }
@@ -73,12 +74,12 @@ main {
     position: relative;
 }
 #right-part > p {
-    width: 230px;
+    width: 240px;
     font-size: 15px;
     padding: 7px 0;
 }
 #building {
-    max-width: 230px;
+    max-width: 240px;
     height: 350px;
 }
 #text-block {
@@ -86,7 +87,7 @@ main {
     top: 45px;
     left: 50px;
     background-color: white;
-    padding: 5px 20px 70px 20px;
+    padding: 10px 20px 80px 20px;
     width: 215px;
 }
 #text-block > h1 {
