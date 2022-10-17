@@ -12,7 +12,32 @@ body {
 a {
     text-decoration: none;
 }
-
+a:link {
+    color: black;
+}
+a:visited {
+    color: black;
+}
+a:hover {
+    color: rgb(255, 166, 0);
+}
+a:active {
+    color: white;
+}
+button {
+    background-color: rgb(231, 240, 248);
+    border: 2px solid black;
+    padding: 10px 30px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: black;
+    border: 2px solid black;
+    padding: 10px 30px;
+    letter-spacing: 2px;
+    color: white;
+}
 header {
     padding: 15px;
     display: flex;
@@ -29,7 +54,6 @@ header {
 #refs {
     margin: 7px;
     padding: 7px;
-    color: black;
 }
 
 main {
@@ -53,12 +77,6 @@ main {
     align-items: flex-start;
     position: relative;
     padding-right: 250px;
-}
-#right-part > button {
-    background-color: rgb(231, 240, 248);
-    border: 2px solid black;
-    padding: 10px 30px;
-    letter-spacing: 2px;
 }
 #right-part > p {
     width: 360px;
