@@ -1,0 +1,104 @@
+html {
+    height: 100%;
+    text-align: center;
+    letter-spacing: 2px;
+}
+body {
+    display: grid;
+    min-height: 98%;
+    min-width: fit-content;
+    font-family: Garamond, serif;
+    background-color: lavenderblush;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style-type: none;
+    margin: 2;
+    padding: 0;
+}
+
+.container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 3fr 1fr 8fr;
+    grid-template-rows: auto 3fr auto;
+    gap: 5px;
+    padding: 3px;
+    justify-content: center;
+}
+
+.item {
+    background-color: lavender;
+    color: rgb(103, 18, 182);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border: 2px dotted black;
+}
+#first-box {
+    grid-row: 1/3;
+}
+#white-box {
+    grid-row: 1/4;
+    background-color: rgb(244, 183, 244);
+    min-width: 5px;
+}
+#second-box {
+    grid-row: 1/2;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+#third-box {
+    grid-area: 2/3/3/4;
+}
+#forth-box {
+    grid-area: 3/1/4/2;
+}
+#fifth-box {
+    grid-area: 3/3/4/4;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+#x-box {
+    margin: auto;
+    margin-left: 15px;
+}
+#y-box {
+    margin: auto;
+    margin-right: 15px;
+}
+#x-box > h3 {
+    background-color: lavenderblush;
+    color: blueviolet;
+    border: 2px;
+    border-bottom-style: solid;
+    border-right-style: solid;
+    padding: 7px;
+}
+#y-box > h3 {
+    background-color: lavenderblush;
+    color: rgb(108, 16, 195);
+    font-size: medium;
+    border: 2px;
+    border-top-style: solid;
+    border-left-style: solid;
+    padding: 7px;
+}
+#second-box > p {
+    text-align: right;
+}
+#fifth-box > p {
+    text-align: left;
+}
+
+#first-box > p, #third-box > p, #forth-box > p {
+    margin-left: 3%;
+    margin-right: 3%;
+}
+#second-box > p, #fifth-box > p {
+    margin-left: 3%;
+    margin-right: 3%;
+}
