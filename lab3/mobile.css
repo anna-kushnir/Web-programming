@@ -37,9 +37,6 @@ ul {
     align-items: center;
     border: 2px dotted black;
 }
-#first-box {
-    flex: 100%;
-}
 #white-box {
     flex: 100%;
     background-color: rgb(244, 183, 244);
@@ -49,12 +46,6 @@ ul {
     flex: 100%;
     display: grid;
     grid-template-columns: auto auto;
-}
-#third-box {
-    flex: 100%;
-}
-#forth-box {
-    flex: 100%;
 }
 #fifth-box {
     flex: 100%;
