@@ -2,9 +2,11 @@
 function swapOneAndTwo() {
     let firstText = document.querySelector("#first_text");
     let secondText = document.querySelector("#second_text");
-    let temp = firstText.innerHTML;
-    firstText.innerHTML = secondText.innerHTML;
-    secondText.innerHTML = temp;
+    if (firstText.innerHTML != "" && secondText.innerHTML != "") {
+        let temp = firstText.innerHTML;
+        firstText.innerHTML = secondText.innerHTML;
+        secondText.innerHTML = temp;
+    }
 }
 
 setTimeout(swapOneAndTwo, 2000);
@@ -87,9 +89,13 @@ function mouseoverOne(e) {
     if (!e.relatedTarget || !e.relatedTarget.closest("#first-box")) {
         if (first.style.textAlign == "right") {
             first.style.textAlign = "center";
+            let ul = first.querySelector(".ullist");
+            ul.style.textAlign = "center";
         }
         else {
             first.style.textAlign = "right";
+            let ul = first.querySelector(".ullist");
+            ul.style.textAlign = "right";
         }
     }
 }
@@ -97,9 +103,15 @@ function mouseoverTwo(e) {
     if (!e.relatedTarget || !e.relatedTarget.closest("#second-box")) {
         if (second.style.textAlign == "right") {
             second.style.textAlign = "center";
+            let ul = second.querySelector(".ullist");
+            ul.style.textAlign = "center";
+            ul.style.listStylePosition = "outside";
         }
         else {
             second.style.textAlign = "right";
+            let ul = second.querySelector(".ullist");
+            ul.style.textAlign = "right";
+            ul.style.listStylePosition = "inside";
         }
     }
 }
@@ -206,7 +218,7 @@ if (localStorage.getItem("ul_first")) {
     let text = localStorage.getItem("ul_first");
     let strings = text.split("\n");
     let parent = document.querySelector("#first");
-    parent.innerHTML = `<ul class="ullist"></ul><p class="ul-add">Add List</p><p class="ul-del">Delete List</p>`;
+    parent.innerHTML = `<span id="first_text"></span><ul class="ullist"></ul><p class="ul-add">Add List</p><p class="ul-del">Delete List</p>`;
     let ul = parent.querySelector("ul");
     for (let i = 0; i< strings.length; i++) {
         ul.innerHTML += `<li>${strings[i]}</li>`;
@@ -216,7 +228,7 @@ if (localStorage.getItem("ul_second")) {
     let text = localStorage.getItem("ul_second");
     let strings = text.split("\n");
     let parent = document.querySelector("#second");
-    parent.innerHTML = `<ul class="ullist"></ul><p class="ul-add">Add List</p><p class="ul-del">Delete List</p>`;
+    parent.innerHTML = `<span id="second_text"></span><ul class="ullist"></ul><p class="ul-add">Add List</p><p class="ul-del">Delete List</p>`;
     let ul = parent.querySelector("ul");
     for (let i = 0; i< strings.length; i++) {
         ul.innerHTML += `<li>${strings[i]}</li>`;
