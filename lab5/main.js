@@ -35,7 +35,7 @@ function findDividers(n) {
     return res;
 }
 
-function reloadPage(e) {
+function sendForm(e) {
     e.preventDefault();
     let N = document.querySelector("#N");
     document.cookie = `dividers=${findDividers(parseInt(N.value))};`;
@@ -56,8 +56,8 @@ function getCookie(name) {
     return result ? decodeURIComponent(matches[1]) : "";
 }
 
-let button = document.querySelector("start_button");
-button.addEventListener("click", reloadPage);
+let button = document.querySelector("#start_button");
+button.addEventListener("click", sendForm);
 
 if (getCookie("dividers")!="") {
     if (confirm('There are some cookies here. Do you want to delete them?\n'+` ${document.cookie}`)) {
