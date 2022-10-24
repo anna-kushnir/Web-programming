@@ -26,7 +26,7 @@ areaOfTheOval(5, 6);
 // наявною формою для введення даних;
 // в) при відмові виводиться наступне діалогове вікно із інформуванням
 function findDividers(n) {
-    let res = "";
+    let res = "" + n;
     for (let i = 0; i <= n; i++) {
         if (n % i == 0) {
             res += i + ",";
@@ -53,10 +53,10 @@ function getCookie(name) {
     let result = document.cookie.match(new RegExp(
         "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
       ));
-    return result ? decodeURIComponent(matches[1]) : "";
+    return result ? decodeURIComponent(result[1]) : "";
 }
 
-let button = document.querySelector("#start_button");
+let button = document.querySelector("button");
 button.addEventListener("click", sendForm);
 
 if (getCookie("dividers")!="") {
