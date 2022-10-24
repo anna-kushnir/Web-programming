@@ -170,7 +170,8 @@ function cancelDeleting(e) {
 function clickList(e) {
     if (e.target.classList.contains("ul-add")) {
         let parent = e.target.parentElement;
-        parent.innerHTML+=`<div style="margin: 10px;"><label for="list">List:</label><br>
+        parent.innerHTML+=`<div style="margin: 10px;">
+        <label for="list">List:</label><br>
         <textarea cols="40" rows="3"></textarea><br>
         <button class="save">Save</button></div>`;
         let del1 = parent.querySelector(".ul-add");
@@ -184,7 +185,8 @@ function clickList(e) {
     }
     if (e.target.classList.contains("ul-del")) {
         let parent = e.target.parentElement;
-        parent.innerHTML+=`<div style="margin: 10px;"><label for="submit">Do you really want to delete this list?</label><br>
+        parent.innerHTML+=`<div style="margin: 10px;">
+        <label for="submit">Do you really want to delete this list?</label><br>
         <button class="delete">Yes, delete</button>
         <button class="no">No</button></div>`;
         let del1 = parent.querySelector(".ul-add");
