@@ -53,7 +53,7 @@ function getCookie(name) {
     let result = document.cookie.match(new RegExp(
         "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
       ));
-    return result ? decodeURIComponent(result[1]) : "";
+    return result ? decodeURIComponent(result[1]) : undefined;
 }
 
 let button = document.querySelector("button");
@@ -69,6 +69,9 @@ if (getCookie("dividers")!="") {
         let form = third_box.querySelector("form");
         third_box.removeChild(form);
       }
+}
+else {
+    alert('There are no cookies here.');
 }
 
 // 4. Напишіть скрипт, який при настанні події mouseover задає вирівнювання по правому краю вмісту блоків «1» і «2» 
