@@ -12,3 +12,6 @@ https://anna-kushnir.github.io/Web-programming/lab3/post.html
 
 Головна сторінка лабораторної роботи №4:
 https://anna-kushnir.github.io/Web-programming/lab4/
+
+Головна сторінка лабораторної роботи №5:
+https://anna-kushnir.github.io/Web-programming/lab5/
