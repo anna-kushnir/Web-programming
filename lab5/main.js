@@ -80,11 +80,11 @@ if (getCookie("dividers")!="") {
 // так, щоб при наступному відкриванні веб-сторінки властивості вирівнювання по правому краю вмісту блоків «1» і «2» 
 // встановлювались із збережених значень в localStorage.
 
-let first = document.querySelector("#first_text");
-let second = document.querySelector("#second_text");
+let first = document.querySelector("#first-box");
+let second = document.querySelector("#second-box");
 
 function mouseoverOne(e) {
-    if (!e.relatedTarget || !e.relatedTarget.closest("#first_text")) {
+    if (!e.relatedTarget || !e.relatedTarget.closest("#first-box")) {
         if (first.style.textAlign == "right") {
             first.style.textAlign = "center";
         }
@@ -94,7 +94,7 @@ function mouseoverOne(e) {
     }
 }
 function mouseoverTwo(e) {
-    if (!e.relatedTarget || !e.relatedTarget.closest("#second_text")) {
+    if (!e.relatedTarget || !e.relatedTarget.closest("#second-box")) {
         if (second.style.textAlign == "right") {
             second.style.textAlign = "center";
         }
@@ -106,8 +106,6 @@ function mouseoverTwo(e) {
 first.addEventListener("mouseover", mouseoverOne);
 second.addEventListener("mouseover", mouseoverTwo);
 
-let flag1res = 0;
-let flag2res = 0;
 function saveToLocalStorage(e) {
     if (flag1res) {
         localStorage.setItem("first_align", first.style.textAlign);
@@ -116,7 +114,7 @@ function saveToLocalStorage(e) {
         localStorage.setItem("second_align", second.style.textAlign);
     }
 }
-addEventListener("beforeunload", saveToLocalStorage);
+window.addEventListener("beforeunload", saveToLocalStorage);
 
 if (localStorage.getItem("first_align")) {
     console.log(localStorage.getItem("first_align"));
@@ -125,7 +123,7 @@ if (localStorage.getItem("first_align")) {
 
 if (localStorage.getItem("second_align")) {
     console.log(localStorage.getItem("second_align"));
-    first.style.textAlign = localStorage.getItem("second_align");
+    second.style.textAlign = localStorage.getItem("second_align");
 }
 
 // 5. Напишіть скрипт створення ненумерованого списку:
@@ -137,3 +135,118 @@ if (localStorage.getItem("second_align")) {
 // г) поруч розміщується кнопка для видалення даних ненумерованого списку із localStorage.
 // д) якщо список не видалявся кнопкою з п. г), перезавантаження веб-сторінки призводить до демонстрації списку на місці 
 // початкового вмісту блока.
+
+function saveList(e) {
+    let parent = e.target.parentElement;
+    let text = parent.querySelector("textarea").value;
+    let new_text = "";
+    if (localStorage.getItem(`ul_${parent.parentElement.id}`)) {
+        new_text += localStorage.getItem(`ul_${parent.parentElement.id}`) + "\n";
+    }
+    new_text += text;
+    localStorage.setItem(`ul_${parent.parentElement.id}`, new_text);
+    let div = parent.parentElement;
+    parent.remove();
+    div.innerHTML += `<p class="ul-add">Add List</p>`;
+    div.innerHTML += `<p class="ul-del">Delete List</p>`;
+}
+function deleteList(e) {
+    let parent = e.target.parentElement;
+    if (localStorage.getItem(`ul_${parent.parentElement.id}`)) {
+        localStorage.removeItem(`ul_${parent.parentElement.id}`);
+    }
+    let div = parent.parentElement;
+    parent.remove();
+    div.innerHTML += `<p class="ul-add">Add List</p>`;
+}
+function cancelDeleting(e) {
+    let parent = e.target.parentElement;
+    let div = parent.parentElement;
+    parent.remove();
+    div.innerHTML += `<p class="ul-add">Add List</p>`;
+    div.innerHTML += `<p class="ul-del">Delete List</p>`;
+}
+
+function clickList(e) {
+    if (e.target.classList.contains("ul-add")) {
+        let parent = e.target.parentElement;
+        parent.innerHTML+=`<div style="margin: 10px;"><label for="list">List:</label><br>
+        <textarea cols="40" rows="3"></textarea><br>
+        <button class="save">Save</button></div>`;
+        let del1 = parent.querySelector(".ul-add");
+        let del2 = parent.querySelector(".ul-del");
+        del1.remove();
+        if (del2) {
+            del2.remove();
+        }
+        let button = parent.querySelector(".save");
+        button.addEventListener("click", saveList);
+    }
+    if (e.target.classList.contains("ul-del")) {
+        let parent = e.target.parentElement;
+        parent.innerHTML+=`<div style="margin: 10px;"><label for="submit">Do you really want to delete this list?</label><br>
+        <button class="delete">Yes, delete</button>
+        <button class="no">No</button></div>`;
+        let del1 = parent.querySelector(".ul-add");
+        let del2 = parent.querySelector(".ul-del");
+        del1.remove();
+        del2.remove();
+        let deleteButton = parent.querySelector(".delete");
+        deleteButton.addEventListener("click", deleteList);
+        let cancelButton = parent.querySelector(".no");
+        cancelButton,addEventListener("click", cancelDeleting);
+    }
+}
+
+document.addEventListener("click", clickList);
+
+if (localStorage.getItem("ul_first")) {
+    let text = localStorage.getItem("ul_first");
+    let strings = text.split("\n");
+    let parent = document.querySelector("#first");
+    parent.innerHTML = `<ul class="ullist"></ul><p class="ul-add">Add List</p><p class="ul-del">Delete List</p>`;
+    let ul = parent.querySelector("ul");
+    for (let i = 0; i< strings.length; i++) {
+        ul.innerHTML += `<li>${strings[i]}</li>`;
+    }
+}
+if (localStorage.getItem("ul_second")) {
+    let text = localStorage.getItem("ul_second");
+    let strings = text.split("\n");
+    let parent = document.querySelector("#second");
+    parent.innerHTML = `<ul class="ullist"></ul><p class="ul-add">Add List</p><p class="ul-del">Delete List</p>`;
+    let ul = parent.querySelector("ul");
+    for (let i = 0; i< strings.length; i++) {
+        ul.innerHTML += `<li>${strings[i]}</li>`;
+    }
+}
+if (localStorage.getItem("ul_third-box")) {
+    let text = localStorage.getItem("ul_third-box");
+    let strings = text.split("\n");
+    let parent = document.querySelector("#third-box");
+    parent.innerHTML = `<ul class="ullist"></ul><p class="ul-add">Add List</p><p class="ul-del">Delete List</p>`;
+    let ul = parent.querySelector("ul");
+    for (let i = 0; i< strings.length; i++) {
+        ul.innerHTML += `<li>${strings[i]}</li>`;
+    }
+}
+if (localStorage.getItem("ul_forth")) {
+    let text = localStorage.getItem("ul_forth");
+    let strings = text.split("\n");
+    let parent = document.querySelector("#forth");
+    parent.innerHTML = `<ul class="ullist"></ul><p class="ul-add">Add List</p><p class="ul-del">Delete List</p>`;
+    let ul = parent.querySelector("ul");
+    for (let i = 0; i< strings.length; i++) {
+        ul.innerHTML += `<li>${strings[i]}</li>`;
+    }
+}
+if (localStorage.getItem("ul_fifth")) {
+    let text = localStorage.getItem("ul_fifth");
+    let strings = text.split("\n");
+    let parent = document.querySelector("#fifth");
+    parent.innerHTML = `<ul class="ullist"></ul><p class="ul-add">Add List</p><p class="ul-del">Delete List</p>`;
+    let ul = parent.querySelector("ul");
+    for (let i = 0; i< strings.length; i++) {
+        ul.innerHTML += `<li>${strings[i]}</li>`;
+    }
+}

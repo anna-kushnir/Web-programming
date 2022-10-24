@@ -43,16 +43,19 @@ button:hover {
     border: 2px dotted black;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 }
 
 #white-box {
     background-color: rgb(244, 183, 244);
 }
 #second-box {
+    /* text-align: right; */
     display: grid;
     grid-template-columns: auto 3fr;
 }
 #fifth-box {
+    text-align: left;
     display: grid;
     grid-template-columns: 3fr auto;
 }
@@ -80,15 +83,19 @@ button:hover {
     border-top-style: solid;
     border-left-style: solid;
     padding: 7px;
+    text-align: center;
 }
-/* #second-box > span {
-    text-align: right;
-} */
-#fifth-box > span {
+span, p {
+    margin: 5px;
+}
+#form {
+    margin: 10px;
+}
+#ul-add {
+    cursor: pointer;
+}
+ul {
     text-align: left;
-}
-#first-box > span, #second-box > span, #third-box > span, #forth-box > span, #fifth-box > span  {
-    margin: 3%;
 }
 
 @media screen and (min-width: 800px) {
@@ -138,6 +145,10 @@ button:hover {
     #white-box {
         flex: 100%;
         min-height: 15px;
+    }
+    #first-box {
+        display: flex;
+        flex-direction: column;
     }
     #second-box {
         flex: 100%;
