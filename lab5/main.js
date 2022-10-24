@@ -39,6 +39,10 @@ function sendForm(e) {
     e.preventDefault();
     let N = document.querySelector("#N");
     document.cookie = `dividers=${findDividers(parseInt(N.value))};`;
+    let flag1 = document.querySelector("#right_first");
+    let flag2 = document.querySelector("#right_second");
+    flag1res = flag1.checked? 1: 0;
+    flag2res = flag2.checked? 1: 0;
 }
 
 function showCookies() {
@@ -70,15 +74,59 @@ if (getCookie("dividers")!="") {
         third_box.removeChild(form);
       }
 }
-else {
-    alert('There are no cookies here.');
-}
 
 // 4. Напишіть скрипт, який при настанні події mouseover задає вирівнювання по правому краю вмісту блоків «1» і «2» 
 // при встановленні користувачем відповідних галочок у формі і зберігає відповідні значення в localStorage броузера 
 // так, щоб при наступному відкриванні веб-сторінки властивості вирівнювання по правому краю вмісту блоків «1» і «2» 
 // встановлювались із збережених значень в localStorage.
 
+let first = document.querySelector("#first_text");
+let second = document.querySelector("#second_text");
+
+function mouseoverOne(e) {
+    if (!e.relatedTarget || !e.relatedTarget.closest("#first_text")) {
+        if (first.style.textAlign == "right") {
+            first.style.textAlign = "center";
+        }
+        else {
+            first.style.textAlign = "right";
+        }
+    }
+}
+function mouseoverTwo(e) {
+    if (!e.relatedTarget || !e.relatedTarget.closest("#second_text")) {
+        if (second.style.textAlign == "right") {
+            second.style.textAlign = "center";
+        }
+        else {
+            second.style.textAlign = "right";
+        }
+    }
+}
+first.addEventListener("mouseover", mouseoverOne);
+second.addEventListener("mouseover", mouseoverTwo);
+
+let flag1res = 0;
+let flag2res = 0;
+function saveToLocalStorage(e) {
+    if (flag1res) {
+        localStorage.setItem("first_align", first.style.textAlign);
+    }
+    if (flag2res) {
+        localStorage.setItem("second_align", second.style.textAlign);
+    }
+}
+addEventListener("beforeunload", saveToLocalStorage);
+
+if (localStorage.getItem("first_align")) {
+    console.log(localStorage.getItem("first_align"));
+    first.style.textAlign = localStorage.getItem("first_align");
+}
+
+if (localStorage.getItem("second_align")) {
+    console.log(localStorage.getItem("second_align"));
+    first.style.textAlign = localStorage.getItem("second_align");
+}
 
 // 5. Напишіть скрипт створення ненумерованого списку:
 // а) необхідні елементи форми появляються у відповідних номерних блоках (1..5) внаслідок кліку на текстовому посиланні 

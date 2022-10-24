@@ -81,9 +81,9 @@ button:hover {
     border-left-style: solid;
     padding: 7px;
 }
-#second-box > span {
+/* #second-box > span {
     text-align: right;
-}
+} */
 #fifth-box > span {
     text-align: left;
 }
