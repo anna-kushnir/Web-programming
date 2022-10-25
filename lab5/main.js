@@ -167,7 +167,6 @@ function deleteList(e) {
     if (localStorage.getItem(`ul_${parent.parentElement.id}`)) {
         localStorage.removeItem(`ul_${parent.parentElement.id}`);
     }
-    let div = parent.parentElement;
     parent.remove();
 }
 function cancelDeleting(e) {
@@ -207,7 +206,7 @@ function clickList(e) {
         let deleteButton = parent.querySelector(".delete");
         deleteButton.addEventListener("click", deleteList);
         let cancelButton = parent.querySelector(".no");
-        cancelButton,addEventListener("click", cancelDeleting);
+        cancelButton.addEventListener("click", cancelDeleting);
     }
 }
 
