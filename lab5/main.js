@@ -90,12 +90,16 @@ function mouseoverOne(e) {
         if (first.style.textAlign == "right") {
             first.style.textAlign = "center";
             let ul = first.querySelector(".ullist");
-            ul.style.textAlign = "center";
+            if (ul) {
+                ul.style.textAlign = "center";
+            }
         }
         else {
             first.style.textAlign = "right";
             let ul = first.querySelector(".ullist");
-            ul.style.textAlign = "right";
+            if (ul) {
+                ul.style.textAlign = "right";
+            }
         }
     }
 }
@@ -104,14 +108,18 @@ function mouseoverTwo(e) {
         if (second.style.textAlign == "right") {
             second.style.textAlign = "center";
             let ul = second.querySelector(".ullist");
-            ul.style.textAlign = "center";
-            ul.style.listStylePosition = "outside";
+            if (ul) {
+                ul.style.textAlign = "center";
+                ul.style.listStylePosition = "outside";
+            }
         }
         else {
             second.style.textAlign = "right";
             let ul = second.querySelector(".ullist");
-            ul.style.textAlign = "right";
-            ul.style.listStylePosition = "inside";
+            if (ul) {
+                ul.style.textAlign = "right";
+                ul.style.listStylePosition = "inside";
+            }
         }
     }
 }
