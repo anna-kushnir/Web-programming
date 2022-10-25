@@ -169,7 +169,6 @@ function deleteList(e) {
     }
     let div = parent.parentElement;
     parent.remove();
-    div.innerHTML += `<p class="ul-add">Add List</p>`;
 }
 function cancelDeleting(e) {
     let parent = e.target.parentElement;
