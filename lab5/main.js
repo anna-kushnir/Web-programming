@@ -18,7 +18,7 @@ function areaOfTheOval(r1, r2) {
     third.innerHTML += `<p>Півосі: r1 = ${r1}, r2 = ${r2}. Площа: S = ${(Math.PI * r1 * r2).toFixed(2)}</p>`;
 }
 
-areaOfTheOval(5, 6);
+areaOfTheOval(5, 7);
 
 // 3. Напишіть скрипт, який визначає всі дільники заданого натурального числа, беручи це число із відповідної 
 // форми в блоці «3», а отриманий результат виводить за допомогою діалогового вікна і зберігає в cookies, причому:
@@ -123,18 +123,44 @@ function mouseoverTwo(e) {
         }
     }
 }
-first.addEventListener("mouseover", mouseoverOne);
-second.addEventListener("mouseover", mouseoverTwo);
 
-function saveToLocalStorage(e) {
-    if (flag1res) {
-        localStorage.setItem("first_align", first.style.textAlign);
+function changeAlign1On() {
+    first.addEventListener("mouseover", mouseoverOne);
+}
+function changeAlign2On() {
+    second.addEventListener("mouseover", mouseoverTwo);
+}
+
+function changeAlign1Off() {
+    first.removeEventListener("mouseover", mouseoverOne);
+}
+function changeAlign2Off() {
+    second.removeEventListener("mouseover", mouseoverTwo);
+}
+
+function change(e) {
+    let flag1 = document.querySelector("#right_first");
+    let flag2 = document.querySelector("#right_second");
+    if (flag1.checked) {
+        changeAlign1On();
     }
-    if (flag2res) {
-        localStorage.setItem("second_align", second.style.textAlign);
+    else {
+        changeAlign1Off();
+    }
+    if (flag2.checked) {
+        changeAlign2On();
+    }
+    else {
+        changeAlign2Off();
     }
 }
+
+function saveToLocalStorage(e) {
+    localStorage.setItem("first_align", first.style.textAlign);
+    localStorage.setItem("second_align", second.style.textAlign);
+}
 window.addEventListener("beforeunload", saveToLocalStorage);
+window.addEventListener("click", change);
 
 if (localStorage.getItem("first_align")) {
     console.log(localStorage.getItem("first_align"));
