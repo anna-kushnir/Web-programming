@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Home">
+    <meta name="keywords" content="">
+    <meta http-equiv="content-language" content="en">
+    <title>Home</title>
+
+    <link href="styles.css" rel="stylesheet">
+    <link rel="icon" href="images/ico/main_icon.ico">
+</head>
+<body>
+    <div class="container">
+        <div class="item" id="first-box">
+            <ul>
+                <li><h2>Menu</h2></li>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="main_grid.html">Grid</a></li>
+                </ul>
+            </ul>
+        </div>
+
+        <div class="item" id="white-box"></div>
+
+        <div class="item" id="second-box">
+            <div id="x-box">
+                <h3>Lorem ipsum dolor sit amet.</h3>
+            </div>
+            <p>Sed euismod felis at venenatis gravida. Aliquam tincidunt neque quis mi blandit, euismod lacinia nibh volutpat. Nunc gravida tellus quis ex efficitur placerat. Phasellus in orci scelerisque eros.</p>
+        </div>
+
+        <div class="item" id="third-box">
+            <form id="form">
+                <label for="font_size">Font size (in rem):</label>
+                <input type="number" id="font_size" name="font_size" min="1">
+                <br>
+                <label for="font_weight">Font weight: </label>
+                <input type="checkbox" id="bold_text" name="font_weight" value="bold">
+                <label for="bold_text">Bold</label>
+                <input type="checkbox" id="italic_text" name="font_weight" value="italic">
+                <label for="italic_text">Italic</label>
+                <br>
+                <label for="text_color">Text color:</label>
+                <input type="color" id="text_color" name="text_color">
+                <br>
+                <label for="text_color">First glitch color:</label>
+                <input type="color" id="first_glitch_color" name="text_color" value="#ff0000">
+                <br>
+                <label for="text_color">Second glitch color:</label>
+                <input type="color" id="second_glitch_color" name="text_color" value="#0000ff">
+                <br>
+                <label for="padding_left">Padding left (in px):</label>
+                <input type="number" id="padding_left" name="padding_left" min="0">
+                <br>
+                <label for="padding_right">Padding right (in px):</label>
+                <input type="number" id="padding_right" name="padding_right" min="0">
+                <br>
+                <label>Text align:</label>
+                <input type="radio" id="left_aligh" name="text_align" value="left">
+                <label for="left_align">Left</label>
+                <input type="radio" id="center_aligh" name="text_align" value="center">
+                <label for="center_align">Center</label>
+                <input type="radio" id="right_aligh" name="text_align" value="right">
+                <label for="right_align">Right</label>
+                <br>
+                <label for="open_animation_duration">Opening animation duration (in ms):</label>
+                <input type="number" id="open_animation_duration" name="animation_time" min="1">
+                <br>
+                <label for="animation_duration">Animation duration (in ms):</label>
+                <input type="number" id="animation_duration" name="animation_time" min="1">
+                <br>
+                <button>Save settings</button>
+            </form>
+            <div class="glitch-container">
+                <div class="stack" style="--stacks: 3;">
+                    <span style="--index: 0;">STACK</span>
+                    <span style="--index: 1;">STACK</span>
+                    <span style="--index: 2;">STACK</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="item" id="forth-box">
+            <p>Morbi dui eros, tincidunt sit amet pellentesque quis, efficitur dictum mauris. Sed id eros sed nibh tristique fermentum quis et sapien.</p>
+        </div>
+
+        <div class="item" id="fifth-box">
+            <p>Nullam non nibh fermentum, cursus elit quis, pretium orci. Fusce ac dictum arcu. Maecenas dapibus porta convallis. Phasellus ac consequat elit. Mauris sagittis convallis erat, et faucibus tortor.</p>
+            <div id="y-box">
+                <h3>Contacts: <a href="mailto:anna.kushnir.1008@gmail.com">anna.kushnir.1008@gmail.com</a></h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,192 @@
+html {
+    height: 100%
+}
+body {
+    display: flex;
+    min-height: 98%;
+    justify-content: center;
+    font-family: Garamond, serif;
+    --background_color: lavenderblush;
+    background-color: var(--background_color);
+}
+div, p {
+    text-align: center;
+    letter-spacing: 2px;
+}
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+    margin: 2;
+    padding: 0;
+}
+ol {
+    list-style-type: upper-roman;
+    list-style-position: inside;
+}
+ol.ol-1 {
+    text-align: left;
+    list-style-type:square;
+}
+
+.container {
+    display: grid;
+    width: 95%;
+    grid-template-columns: 3fr 1fr 8fr;
+    grid-template-rows: auto 3fr auto;
+    gap: 3px;
+    padding: 3px;
+    justify-content: center;
+}
+
+.item {
+    background-color: lavender;
+    color: rgb(103, 18, 182);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dotted black;
+}
+#first-box {
+    grid-row: 1/3;
+}
+#white-box {
+    grid-row: 1/4;
+    background-color: rgb(244, 183, 244);
+    min-width: 5px;
+}
+#second-box {
+    grid-row: 1/2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#third-box {
+    grid-area: 2/3/3/4;
+    display: flex;
+    flex-direction: column;
+}
+#forth-box {
+    grid-area: 3/1/4/2;
+}
+#fifth-box {
+    grid-area: 3/3/4/4;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#x-box {
+    margin: auto;
+}
+#y-box {
+    margin: auto;
+}
+#x-box > h3 {
+    background-color: var(--background_color);
+    color: blueviolet;
+    border: 2px;
+    border-bottom-style: solid;
+    border-right-style: solid;
+    padding: 7px;
+}
+#y-box > h3 {
+    background-color: var(--background_color);
+    color: rgb(108, 16, 195);
+    font-size: medium;
+    border: 2px;
+    border-top-style: solid;
+    border-left-style: solid;
+    padding: 7px;
+}
+#second-box > p {
+    text-align: right;
+}
+#fifth-box > p {
+    text-align: left;
+}
+
+#first-box > p, #third-box > p, #forth-box > p {
+    margin-left: 3%;
+    margin-right: 3%;
+}
+#second-box > p, #fifth-box > p {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#form {
+    text-align: left;
+    margin-top: 20px;
+}
+#form > input {
+    margin: 3px;
+}
+button {
+    background-color: white;
+    border: 2px solid black;
+    padding: 5px 10px;
+    margin: 10px 0;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+
+
+  .glitch-container {
+    font-size: 3rem;
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto
+  }
+  
+  .stack {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  
+  .stack span {
+    font-weight: bold;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    --stack-height: calc(100% / var(--stacks) - 1px);
+    --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
+    --clip-top: calc(var(--stack-height) * var(--index));
+    --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+    clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+    animation: stack 340ms cubic-bezier(.35,.21,.5,1.24) 1 backwards calc(var(--index) * 220ms), glitch 2s ease infinite 2s alternate-reverse;
+  }
+  
+  .stack span:nth-child(odd) { --glitch-translate: 8px; }
+  .stack span:nth-child(even) { --glitch-translate: -8px; }
+  
+  @keyframes stack {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%);
+      text-shadow: -3px 4px 0 red, 3px -4px 0 blue;
+    };
+    60% {
+      opacity: 0.5;
+      transform: translateX(50%);
+    }
+    80% {
+      transform: none;
+      opacity: 1;
+      text-shadow: 3px -4px 0 red, -3px 4px 0 blue;
+    }
+    100% {
+      text-shadow: none;
+    }
+  }
+  
+  @keyframes glitch {
+    0% {
+      text-shadow: -3px 4px 0 red, 3px -4px 0 blue;
+      transform: translate(var(--glitch-translate));
+    }
+    3% {
+      text-shadow: 3px -4px 0 red, -3px 4px 0 blue;
+    }
+    6%, 100% {  text-shadow: none; transform: none; }
+  }
