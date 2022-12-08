@@ -25,20 +25,30 @@
 // window.onload=copyFields;
 
 
-function saveSettings(e) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('get', '/filename.txt', true);
-    xhr.send();
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState != 4) return;
-        if (xhr.status != 200) {
-            alert(xhr.status + ': ' + xhr.statusText);
-        }
-        else {
-            alert(xhr.responseText);
-        }
-    }
-}
+// function saveSettings(e) {
+//     var xhr = new XMLHttpRequest();
+//     xhr.open('get', '/filename.txt', true);
+//     xhr.send();
+//     xhr.onreadystatechange = function() {
+//         if (xhr.readyState != 4) return;
+//         if (xhr.status != 200) {
+//             alert(xhr.status + ': ' + xhr.statusText);
+//         }
+//         else {
+//             alert(xhr.responseText);
+//         }
+//     }
+// }
 
-let add_button = document.querySelector("#add_element_btn");
-add_button.addEventListener("click", saveSettings);
+// let add_button = document.querySelector("#add_element_btn");
+// add_button.addEventListener("click", saveSettings);
+
+let form1 = document.querySelector("#form1");
+form1.onsubmit = async(e) => {
+    e.preventDefault();
+    let response = await fetch('/path', {
+        method: 'post', bode: new FormData(form1)
+    });
+    let result = await response.json();
+    alert(result.message);
+};
