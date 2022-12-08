@@ -33,18 +33,18 @@
         </div>
 
         <div class="item" id="third-box">
-            <form id="form">
+            <form id="form1" method=post action="javascript:alert('Ок');void(0);">
                 <label for="font_size">Font size (in rem):</label>
-                <input type="number" id="font_size" name="font_size" min="1">
+                <input type="number" id="font_size" name="font_size" min="1" value="3">
                 <br>
                 <label for="font_weight">Font weight: </label>
-                <input type="checkbox" id="bold_text" name="font_weight" value="bold">
+                <input type="checkbox" id="bold_text" name="font_weight" value="bold" checked="true">
                 <label for="bold_text">Bold</label>
                 <input type="checkbox" id="italic_text" name="font_weight" value="italic">
                 <label for="italic_text">Italic</label>
                 <br>
                 <label for="text_color">Text color:</label>
-                <input type="color" id="text_color" name="text_color">
+                <input type="color" id="text_color" name="text_color" value="#6712b6">
                 <br>
                 <label for="text_color">First glitch color:</label>
                 <input type="color" id="first_glitch_color" name="text_color" value="#ff0000">
@@ -53,28 +53,29 @@
                 <input type="color" id="second_glitch_color" name="text_color" value="#0000ff">
                 <br>
                 <label for="padding_left">Padding left (in px):</label>
-                <input type="number" id="padding_left" name="padding_left" min="0">
+                <input type="number" id="padding_left" name="padding_left" min="0" value="20">
                 <br>
                 <label for="padding_right">Padding right (in px):</label>
-                <input type="number" id="padding_right" name="padding_right" min="0">
+                <input type="number" id="padding_right" name="padding_right" min="0" value="20">
                 <br>
                 <label>Text align:</label>
                 <input type="radio" id="left_aligh" name="text_align" value="left">
                 <label for="left_align">Left</label>
-                <input type="radio" id="center_aligh" name="text_align" value="center">
+                <input type="radio" id="center_aligh" name="text_align" value="center" checked="true">
                 <label for="center_align">Center</label>
                 <input type="radio" id="right_aligh" name="text_align" value="right">
                 <label for="right_align">Right</label>
                 <br>
                 <label for="open_animation_duration">Opening animation duration (in ms):</label>
-                <input type="number" id="open_animation_duration" name="animation_time" min="1">
+                <input type="number" id="open_animation_duration" name="animation_time" min="1" value="340">
                 <br>
                 <label for="animation_duration">Animation duration (in ms):</label>
-                <input type="number" id="animation_duration" name="animation_time" min="1">
+                <input type="number" id="animation_duration" name="animation_time" min="1" value="2000">
                 <br>
-                <button>Save settings</button>
+                <button id="save_btn">Save settings</button>
             </form>
-            <div class="glitch-container">
+            <button id="add_element_btn">Add element</button>
+            <div id="glitch-container" class="glitch-container">
                 <div class="stack" style="--stacks: 3;">
                     <span style="--index: 0;">STACK</span>
                     <span style="--index: 1;">STACK</span>
@@ -95,4 +96,5 @@
         </div>
     </div>
 </body>
+<script src="main.js"></script>
 </html>
