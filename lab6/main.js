@@ -40,4 +40,5 @@ function saveSettings(e) {
     }
 }
 
-add_element_btn.addEventListener("click", saveSettings);
+let add_button = document.querySelector("#add_element_btn");
+add_button.addEventListener("click", saveSettings);
