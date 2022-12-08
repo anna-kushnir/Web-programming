@@ -47,7 +47,7 @@ let form1 = document.querySelector("#form1");
 form1.onsubmit = async(e) => {
     e.preventDefault();
     let response = await fetch('/path', {
-        method: 'post', bode: new FormData(form1)
+        method: 'post', body: new FormData(form1)
     });
     let result = await response.json();
     alert(result.message);
