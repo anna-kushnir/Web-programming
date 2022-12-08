@@ -40,4 +40,4 @@ function saveSettings(e) {
     }
 }
 
-addEventListener('click', add_element_btn);
+add_element_btn.addEventListener("click", saveSettings);
