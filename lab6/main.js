@@ -90,10 +90,14 @@ function saveForm(e) {
     stack.style.setProperty("--animation-duration", form1.querySelector("#animation_duration").value + "ms");
 }
 
+function resetForm(e) {
+    e.preventDefault();
+    form1.reset();
+}
 let save_button = document.querySelector("#save_btn");
 save_button.addEventListener("click", saveForm);
 let reset_button = document.querySelector("#reset_btn");
-reset_button.addEventListener("click", form1.reset);
+reset_button.addEventListener("click", resetForm);
 
 function saveToLocalStorage(e) {
     localStorage.setItem("font_size", stack.style.fontSize);
