@@ -114,8 +114,20 @@ function saveToLocalStorage(e) {
 }
 window.addEventListener("beforeunload", saveToLocalStorage);
 
+function rgbToHex(r,g,b){
+    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+}
+function convertRgbToHex(rgb) {
+    list = rgb.split(",");
+    if (length(list) = 1) {
+        return rgb;
+    }
+    hex = rgbToHex(list[0], list[1], list[2]);
+    return hex;
+}
+
 if (localStorage.getItem("font_size")) {
-    form1.querySelector("#font_size").value = localStorage.getItem("font_size").slice(0, -1);
+    form1.querySelector("#font_size").value = localStorage.getItem("font_size").slice(0, -2);
     stack.style.fontSize = localStorage.getItem("font_size");
 }
 if (localStorage.getItem("font_weight")) {
@@ -127,23 +139,26 @@ if (localStorage.getItem("font_style")) {
     stack.style.fontStyle = localStorage.getItem("font_style");
 }
 if (localStorage.getItem("text_color")) {
-    form1.querySelector("#text_color").value = localStorage.getItem("text_color");
-    stack.style.color = localStorage.getItem("text_color");
+    let color = convertRgbToHex(localStorage.getItem("text_color"));
+    form1.querySelector("#text_color").value = color;
+    stack.style.color = color;
 }
 if (localStorage.getItem("first_glitch_color")) {
-    form1.querySelector("#first_glitch_color").value = localStorage.getItem("first_glitch_color");
-    stack.style.setProperty("--first-glitch-color", localStorage.getItem("first_glitch_color"));
+    let color = convertRgbToHex(localStorage.getItem("first_glitch_color"));
+    form1.querySelector("#first_glitch_color").value = color;
+    stack.style.setProperty("--first-glitch-color", color);
 }
 if (localStorage.getItem("second_glitch_color")) {
-    form1.querySelector("#second_glitch_color").value = localStorage.getItem("second_glitch_color");
-    stack.style.setProperty("--second-glitch-color", localStorage.getItem("second_glitch_color"));
+    let color = convertRgbToHex(localStorage.getItem("second_glitch_color"));
+    form1.querySelector("#second_glitch_color").value = color;
+    stack.style.setProperty("--second-glitch-color", color);
 }
 if (localStorage.getItem("padding_left")) {
-    form1.querySelector("#padding_left").value = localStorage.getItem("padding_left");
+    form1.querySelector("#padding_left").value = localStorage.getItem("padding_left").slice(0, -2);
     stack.style.setProperty("--padding-left", localStorage.getItem("padding_left"));
 }
 if (localStorage.getItem("padding_right")) {
-    form1.querySelector("#padding_right").value = localStorage.getItem("padding_right");
+    form1.querySelector("#padding_right").value = localStorage.getItem("padding_right").slice(0, -2);
     stack.style.setProperty("--padding-right", localStorage.getItem("padding_right"));
 }
 if (localStorage.getItem("text_align")) {
@@ -159,10 +174,10 @@ if (localStorage.getItem("text_align")) {
     stack.style.textAlign = localStorage.getItem("text_align");
 }
 if (localStorage.getItem("open_animation_duration")) {
-    form1.querySelector("#open_animation_duration").value = localStorage.getItem("open_animation_duration");
+    form1.querySelector("#open_animation_duration").value = localStorage.getItem("open_animation_duration").slice(0, -2);
     stack.style.setProperty("--open-animation-duration", localStorage.getItem("open_animation_duration"));
 }
 if (localStorage.getItem("animation_duration")) {
-    form1.querySelector("#animation_duration").value = localStorage.getItem("animation_duration");
+    form1.querySelector("#animation_duration").value = localStorage.getItem("animation_duration").slice(0, -2);
     stack.style.setProperty("--animation-duration", localStorage.getItem("animation_duration"));
 }
