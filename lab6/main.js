@@ -59,14 +59,14 @@ function saveToLocalStorage(e) {
 window.addEventListener("beforeunload", saveToLocalStorage);
 
 function rgbToHex(r,g,b){
-    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+    return "#" + (1 << 24 | r << 16 | g << 8 | b).toString(16).slice(1);
 }
 function convertRgbToHex(rgb) {
     list = rgb.slice(4, -1).split(", ");
     if (list.length == 1) {
         return rgb;
     }
-    hex = rgbToHex(list[0], list[1], list[2]);
+    hex = rgbToHex(parseInt(list[0]), parseInt(list[1]), parseInt(list[2]));
     return hex;
 }
 
