@@ -55,7 +55,7 @@
 
 
 let stack = document.querySelector(".stack");
-let form1 = e.target.parentElement;
+let form1 = document.querySelector("#form1");
 
 function saveForm(e) {
     e.preventDefault();
