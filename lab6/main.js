@@ -1,59 +1,3 @@
-// var http = require('http'); // Завантажуємо модуль http
-
-// // Створюємо web-сервер і вказуємо функцію обробки запиту
-// var server = http.createServer(function (req, res) {
-//     console.log('Початок обробки запиту');
-//     // Передаємо код відповіді і заголовки
-//     res.writeHead(200, {
-//         'Content-Type': 'text/plain; charset=UTF-8'
-//     });
-//     res.end('Hello world!');
-// });
-
-// // Запускаємо web-сервер
-// server.listen(1991, "127.0.0.1", function () {
-//     console.log('Cервер запущено за адресою http://127.0.0.1:1991/');
-// });
-
-
-// function copyFields(){
-//     here = document.getElementById["#form1"].elements;
-//     there = document.getElementById[".glitch-container"];
-//     there.style.fontSize = here[1].value + 'rem';
-//     setTimeout('copyFields()', 100);
-// }
-// window.onload=copyFields;
-
-
-// function saveSettings(e) {
-//     var xhr = new XMLHttpRequest();
-//     xhr.open('get', '/filename.txt', true);
-//     xhr.send();
-//     xhr.onreadystatechange = function() {
-//         if (xhr.readyState != 4) return;
-//         if (xhr.status != 200) {
-//             alert(xhr.status + ': ' + xhr.statusText);
-//         }
-//         else {
-//             alert(xhr.responseText);
-//         }
-//     }
-// }
-
-// let add_button = document.querySelector("#add_element_btn");
-// add_button.addEventListener("click", saveSettings);
-
-// let form1 = document.querySelector("#form1");
-// form1.onsubmit = async(e) => {
-//     e.preventDefault();
-//     let response = await fetch('/', {
-//         method: 'post', body: new FormData(form1)
-//     });
-//     let result = await response.json();
-//     alert(result.message);
-// };
-
-
 let stack = document.querySelector(".stack");
 let form1 = document.querySelector("#form1");
 
@@ -119,7 +63,7 @@ function rgbToHex(r,g,b){
 }
 function convertRgbToHex(rgb) {
     list = rgb.split(",");
-    if (length(list) = 1) {
+    if (list.length == 1) {
         return rgb;
     }
     hex = rgbToHex(list[0], list[1], list[2]);
