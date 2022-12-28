@@ -62,7 +62,7 @@ function rgbToHex(r,g,b){
     return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 }
 function convertRgbToHex(rgb) {
-    list = rgb.split(",");
+    list = rgb.slice(1, -1).split(",");
     if (list.length == 1) {
         return rgb;
     }
