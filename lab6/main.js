@@ -115,7 +115,7 @@ function saveToLocalStorage(e) {
 window.addEventListener("beforeunload", saveToLocalStorage);
 
 if (localStorage.getItem("font_size")) {
-    form1.querySelector("#font_size").value = localStorage.getItem("font_size");
+    form1.querySelector("#font_size").value = localStorage.getItem("font_size").slice(0, -1);
     stack.style.fontSize = localStorage.getItem("font_size");
 }
 if (localStorage.getItem("font_weight")) {
