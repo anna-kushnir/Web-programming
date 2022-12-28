@@ -115,7 +115,7 @@ function saveToLocalStorage(e) {
 window.addEventListener("beforeunload", saveToLocalStorage);
 
 if (localStorage.getItem("font_size")) {
-    form1.querySelector("#font_size").innerHTML = localStorage.getItem("font_size");
+    form1.querySelector("#font_size").value = localStorage.getItem("font_size");
     stack.style.fontSize = localStorage.getItem("font_size");
 }
 if (localStorage.getItem("font_weight")) {
@@ -127,27 +127,42 @@ if (localStorage.getItem("font_style")) {
     stack.style.fontStyle = localStorage.getItem("font_style");
 }
 if (localStorage.getItem("text_color")) {
-    form1.querySelector("#text_color").innerHTML = localStorage.getItem("text_color");
+    form1.querySelector("#text_color").value = localStorage.getItem("text_color");
     stack.style.color = localStorage.getItem("text_color");
 }
 if (localStorage.getItem("first_glitch_color")) {
+    form1.querySelector("#first_glitch_color").value = localStorage.getItem("first_glitch_color");
     stack.style.setProperty("--first-glitch-color", localStorage.getItem("first_glitch_color"));
 }
 if (localStorage.getItem("second_glitch_color")) {
+    form1.querySelector("#second_glitch_color").value = localStorage.getItem("second_glitch_color");
     stack.style.setProperty("--second-glitch-color", localStorage.getItem("second_glitch_color"));
 }
 if (localStorage.getItem("padding_left")) {
+    form1.querySelector("#padding_left").value = localStorage.getItem("padding_left");
     stack.style.setProperty("--padding-left", localStorage.getItem("padding_left"));
 }
 if (localStorage.getItem("padding_right")) {
+    form1.querySelector("#padding_right").value = localStorage.getItem("padding_right");
     stack.style.setProperty("--padding-right", localStorage.getItem("padding_right"));
 }
 if (localStorage.getItem("text_align")) {
+    if (localStorage.getItem("text_align") == "left") {
+        form1.querySelector("#left_align").checked = true;
+    }
+    else if (localStorage.getItem("text_align") == "center") {
+        form1.querySelector("#center_align").checked = true;
+    }
+    else {
+        form1.querySelector("#right_align").checked = true;
+    }
     stack.style.textAlign = localStorage.getItem("text_align");
 }
 if (localStorage.getItem("open_animation_duration")) {
+    form1.querySelector("#open_animation_duration").value = localStorage.getItem("open_animation_duration");
     stack.style.setProperty("--open-animation-duration", localStorage.getItem("open_animation_duration"));
 }
 if (localStorage.getItem("animation_duration")) {
+    form1.querySelector("#animation_duration").value = localStorage.getItem("animation_duration");
     stack.style.setProperty("--animation-duration", localStorage.getItem("animation_duration"));
 }
