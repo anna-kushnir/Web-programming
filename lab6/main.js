@@ -54,54 +54,92 @@
 // };
 
 
+let stack = document.querySelector(".stack");
+let form1 = e.target.parentElement;
 
-function submitForm(e) {
+function saveForm(e) {
     e.preventDefault();
-    let form1 = e.target.parentElement;
-    let stack = document.querySelector(".stack");
-
-    let font_size = form1.querySelector("#font_size").value + "px";
-    let bold_text = form1.querySelector("#bold_text").checked;
-    let italic_text = form1.querySelector("#italic_text").checked;
-    let text_color = form1.querySelector("#text_color").value;
-    let first_glitch_color = form1.querySelector("#first_glitch_color").value;
-    let second_glitch_color = form1.querySelector("#second_glitch_color").value;
-    let padding_left = form1.querySelector("#padding_left").value + "px";
-    let padding_right = form1.querySelector("#padding_right").value + "px";
-    let left_align = form1.querySelector("#left_align").checked;
-    let center_align = form1.querySelector("#center_align").checked;
-    let open_animation_duration = form1.querySelector("#open_animation_duration").value + "ms";
-    let animation_duration = form1.querySelector("#animation_duration").value + "ms";
-
-    stack.style.fontSize = font_size;
-    if (bold_text) {
+    stack.style.fontSize = form1.querySelector("#font_size").value + "px";
+    if (form1.querySelector("#bold_text").checked) {
         stack.style.fontWeight = "bold";
     }
     else {
         stack.style.fontWeight = "normal";
     }
-    if (italic_text) {
+    if (form1.querySelector("#italic_text").checked) {
         stack.style.fontStyle = "italic";
     }
     else {
         stack.style.fontStyle = "normal";
     }
-    stack.style.color = text_color;
-    stack.style.setProperty("--first-glitch-color", first_glitch_color);
-    stack.style.setProperty("--second-glitch-color", second_glitch_color);
-    stack.style.setProperty("--padding-left", padding_left);
-    stack.style.setProperty("--padding-right", padding_right);
-    if (left_align) {
+    stack.style.color = form1.querySelector("#text_color").value;
+    stack.style.setProperty("--first-glitch-color", form1.querySelector("#first_glitch_color").value);
+    stack.style.setProperty("--second-glitch-color", form1.querySelector("#second_glitch_color").value);
+    stack.style.setProperty("--padding-left", form1.querySelector("#padding_left").value + "px");
+    stack.style.setProperty("--padding-right", form1.querySelector("#padding_right").value + "px");
+    if (form1.querySelector("#left_align").checked) {
         stack.style.textAlign = "left";
     }
-    else if (center_align) {
+    else if (form1.querySelector("#center_align").checked) {
         stack.style.textAlign = "center";
     }
     else {
         stack.style.textAlign = "right";
     }
-    stack.style.setProperty("--open-animation-duration", open_animation_duration);
-    stack.style.setProperty("--animation-duration", animation_duration);
+    stack.style.setProperty("--open-animation-duration", form1.querySelector("#open_animation_duration").value + "ms");
+    stack.style.setProperty("--animation-duration", form1.querySelector("#animation_duration").value + "ms");
 }
+
 let save_button = document.querySelector("#save_btn");
-save_button.addEventListener("click", submitForm);
+save_button.addEventListener("click", saveForm);
+let reset_button = document.querySelector("#reset_btn");
+reset_button.addEventListener("click", form1.reset);
+
+function saveToLocalStorage(e) {
+    localStorage.setItem("font_size", stack.style.fontSize);
+    localStorage.setItem("font_weight", stack.style.fontWeight);
+    localStorage.setItem("font_style", stack.style.fontStyle);
+    localStorage.setItem("text_color", stack.style.color);
+    localStorage.setItem("first_glitch_color", stack.style.getPropertyValue("--first-glitch-color"));
+    localStorage.setItem("second_glitch_color", stack.style.getPropertyValue("--second-glitch-color"));
+    localStorage.setItem("padding_left", stack.style.getPropertyValue("--padding-left"));
+    localStorage.setItem("padding_right", stack.style.getPropertyValue("--padding-right"));
+    localStorage.setItem("text_align", stack.style.textAlign);
+    localStorage.setItem("open_animation_duration", stack.style.getPropertyValue("--open-animation-duration"));
+    localStorage.setItem("animation_duration", stack.style.getPropertyValue("--animation-duration"));
+}
+window.addEventListener("beforeunload", saveToLocalStorage);
+
+if (localStorage.getItem("font_size")) {
+    stack.style.fontSize = localStorage.getItem("font_size");
+}
+if (localStorage.getItem("font_weight")) {
+    stack.style.fontWeight = localStorage.getItem("font_weight");
+}
+if (localStorage.getItem("font_style")) {
+    stack.style.fontStyle = localStorage.getItem("font_style");
+}
+if (localStorage.getItem("text_color")) {
+    stack.style.color = localStorage.getItem("text_color");
+}
+if (localStorage.getItem("first_glitch_color")) {
+    stack.style.setProperty("--first-glitch-color", localStorage.getItem("first_glitch_color"));
+}
+if (localStorage.getItem("second_glitch_color")) {
+    stack.style.setProperty("--second-glitch-color", localStorage.getItem("second_glitch_color"));
+}
+if (localStorage.getItem("padding_left")) {
+    stack.style.setProperty("--padding-left", localStorage.getItem("padding_left"));
+}
+if (localStorage.getItem("padding_right")) {
+    stack.style.setProperty("--padding-right", localStorage.getItem("padding_right"));
+}
+if (localStorage.getItem("text_align")) {
+    stack.style.textAlign = localStorage.getItem("text_align");
+}
+if (localStorage.getItem("open_animation_duration")) {
+    stack.style.setProperty("--open-animation-duration", localStorage.getItem("open_animation_duration"));
+}
+if (localStorage.getItem("animation_duration")) {
+    stack.style.setProperty("--animation-duration", localStorage.getItem("animation_duration"));
+}
