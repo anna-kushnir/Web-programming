@@ -56,6 +56,7 @@
 
 
 function submitForm(e) {
+    e.preventDefault();
     let form1 = e.target.parentElement;
     let stack = document.querySelector(".stack");
     let stack1 = stack.querySelector("#stack1");
