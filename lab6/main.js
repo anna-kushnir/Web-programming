@@ -77,8 +77,14 @@ function submitForm(e) {
     if (bold_text) {
         stack.style.fontWeight = "bold";
     }
+    else {
+        stack.style.fontWeight = "normal";
+    }
     if (italic_text) {
         stack.style.fontStyle = "italic";
+    }
+    else {
+        stack.style.fontStyle = "normal";
     }
     stack.style.color = text_color;
     stack.style.setProperty("--first-glitch-color", first_glitch_color);
