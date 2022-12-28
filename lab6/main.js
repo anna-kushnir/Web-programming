@@ -59,11 +59,11 @@ function submitForm(e) {
     e.preventDefault();
     let form1 = e.target.parentElement;
     let stack = document.querySelector(".stack");
-    let stack1 = stack.querySelector("#stack1");
-    let stack2 = stack.querySelector("#stack2");
-    let stack3 = stack.querySelector("#stack3");
+    let stack1 = document.querySelector("#stack1");
+    let stack2 = document.querySelector("#stack2");
+    let stack3 = document.querySelector("#stack3");
     
-    let font_size = parseInt(form1.querySelector("#font_size").value);
+    let font_size = form1.querySelector("#font_size").value + "px";
     let bold_text = form1.querySelector("#bold_text").checked;
     let italic_text = form1.querySelector("#italic_text").checked;
     let text_color = form1.querySelector("#text_color").value;
