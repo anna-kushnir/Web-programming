@@ -115,16 +115,19 @@ function saveToLocalStorage(e) {
 window.addEventListener("beforeunload", saveToLocalStorage);
 
 if (localStorage.getItem("font_size")) {
-    form1.querySelector("#font_size").value = localStorage.getItem("font_size");
+    form1.querySelector("#font_size").innerHTML = localStorage.getItem("font_size");
     stack.style.fontSize = localStorage.getItem("font_size");
 }
 if (localStorage.getItem("font_weight")) {
+    form1.querySelector("#bold_text").checked = (localStorage.getItem("font_weight") == "bold" ? true : false);
     stack.style.fontWeight = localStorage.getItem("font_weight");
 }
 if (localStorage.getItem("font_style")) {
+    form1.querySelector("#italic_text").checked = (localStorage.getItem("font_style") == "italic" ? true : false);
     stack.style.fontStyle = localStorage.getItem("font_style");
 }
 if (localStorage.getItem("text_color")) {
+    form1.querySelector("#text_color").innerHTML = localStorage.getItem("text_color");
     stack.style.color = localStorage.getItem("text_color");
 }
 if (localStorage.getItem("first_glitch_color")) {
