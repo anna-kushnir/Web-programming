@@ -138,7 +138,7 @@ button {
 
 
   .glitch-container {
-    font-size: 3rem;
+    font-size: 30px;
     display: flex;
     flex-direction: column;
     margin: 50px auto
@@ -147,12 +147,16 @@ button {
   .stack {
     display: grid;
     grid-template-columns: 1fr;
+    --padding-left: 20px;
+    --padding-right: 20px;
+    --open-animation-duration: 340ms;
+    --animation-duration: 2000ms;
+    --first-glitch-color: #ff0000;
+    --second-glitch-color: #0000ff;
   }
   
   .stack span {
-    --padding-left: 20px;
     padding-left: var(--padding-left);
-    --padding-right: 20px;
     padding-right: var(--padding-right);
     font-weight: bold;
     grid-row-start: 1;
@@ -162,8 +166,7 @@ button {
     --clip-top: calc(var(--stack-height) * var(--index));
     --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
     clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
-    --animation-duration: 340ms;
-    animation: var(--animation-duration) cubic-bezier(.35,.21,.5,1.24) 1 backwards calc(var(--index) * 220ms) stack, 2s ease infinite 2s alternate-reverse glitch;
+    animation: var(--open-animation-duration) cubic-bezier(.35,.21,.5,1.24) 1 backwards calc(var(--index) * 220ms) stack, var(--animation-duration) ease infinite 2s alternate-reverse glitch;
   }
   
   .stack span:nth-child(odd) { --glitch-translate: 8px; }
@@ -173,7 +176,7 @@ button {
     0% {
       opacity: 0;
       transform: translateX(-50%);
-      text-shadow: -3px 4px 0 #ff0000, 3px -4px 0 #0000ff;
+      text-shadow: -3px 4px 0 var(--first-glitch-color), 3px -4px 0 var(--second-glitch-color);
     };
     60% {
       opacity: 0.5;
@@ -182,7 +185,7 @@ button {
     80% {
       transform: none;
       opacity: 1;
-      text-shadow: 3px -4px 0 #ff0000, -3px 4px 0 #0000ff;
+      text-shadow: 3px -4px 0 var(--first-glitch-color), -3px 4px 0 var(--second-glitch-color);
     }
     100% {
       text-shadow: none;
@@ -191,11 +194,11 @@ button {
   
   @keyframes glitch {
     0% {
-      text-shadow: -3px 4px 0 #ff0000, 3px -4px 0 #0000ff;
+      text-shadow: -3px 4px 0 var(--first-glitch-color), 3px -4px 0 var(--second-glitch-color);
       transform: translate(var(--glitch-translate));
     }
     3% {
-      text-shadow: 3px -4px 0 #ff0000, -3px 4px 0 #0000ff;
+      text-shadow: 3px -4px 0 var(--first-glitch-color), -3px 4px 0 var(--second-glitch-color);
     }
     6%, 100% {  text-shadow: none; transform: none; }
   }
