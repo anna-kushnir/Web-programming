@@ -58,7 +58,7 @@ function saveList(e) {
     parent.remove();
     div.innerHTML += `<button id="add_element_btn">Add element</button>`;
     div.innerHTML += `<button id="del_fst_element_btn">Delete First Element</button>`;
-    onload(e);
+    document.location.reload();
 }
 function addItem(e) {
     let parent = e.target.parentElement;
