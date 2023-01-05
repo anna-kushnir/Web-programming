@@ -1,0 +1,142 @@
+html {
+    height: 100%
+}
+body {
+    display: flex;
+    min-height: 98%;
+    justify-content: center;
+    font-family: Garamond, serif;
+    --background_color: #fff0f5;
+    background-color: var(--background_color);
+}
+div, p {
+    text-align: center;
+    letter-spacing: 2px;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style-type: none;
+    margin: 2;
+    padding: 0;
+}
+
+.container {
+    display: grid;
+    width: 95%;
+    grid-template-columns: 3fr 1fr 8fr;
+    grid-template-rows: auto 3fr auto;
+    gap: 3px;
+    padding: 3px;
+    justify-content: center;
+}
+
+.item {
+    background-color: #e6e6fa;
+    color: #6712b6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dotted #000000;
+}
+#first-box {
+    grid-row: 1/3;
+}
+#white-box {
+    grid-row: 1/4;
+    background-color: #f4b7f4;
+    min-width: 5px;
+}
+#second-box {
+    grid-row: 1/2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#third-box {
+    grid-area: 2/3/3/4;
+    display: flex;
+}
+#forth-box {
+    grid-area: 3/1/4/2;
+}
+#fifth-box {
+    grid-area: 3/3/4/4;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#x-box {
+    margin: auto;
+}
+#y-box {
+    margin: auto;
+}
+
+#x-box > h3 {
+    background-color: var(--background_color);
+    color: #8a2be2;
+    border: 2px;
+    border-bottom-style: solid;
+    border-right-style: solid;
+    padding: 7px;
+}
+#y-box > h3 {
+    background-color: var(--background_color);
+    color: #6c10c3;
+    font-size: medium;
+    border: 2px;
+    border-top-style: solid;
+    border-left-style: solid;
+    padding: 7px;
+    word-break: break-all;
+}
+#second-box > p {
+    text-align: right;
+}
+#fifth-box > p {
+    text-align: left;
+}
+#first-box > p, #text > p, #forth-box > p {
+    margin-left: 3%;
+    margin-right: 3%;
+}
+#second-box > p, #fifth-box > p {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+button {
+    background-color: #f1d9fc;
+    border: 2px solid #000000;
+    padding: 7px 15px;
+    margin: 10px 0;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+
+#work {
+    display: none;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+
+#controls {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 2%;
+}
+#controls > p {
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: right;
+}
+
+#anim {
+    width: calc(100% - 10px);
+    height: calc(100% - 50px);
+    border: 5px solid green;
+    align-self: center;
+}
