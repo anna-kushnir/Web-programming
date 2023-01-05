@@ -16,19 +16,10 @@ div, p {
 a {
     text-decoration: none;
 }
-
 ul {
     list-style-type: none;
     margin: 2;
     padding: 0;
-}
-ol {
-    list-style-type: upper-roman;
-    list-style-position: inside;
-}
-ol.ol-1 {
-    text-align: left;
-    list-style-type:square;
 }
 
 .container {
@@ -137,13 +128,12 @@ button {
 
 
 
-  .glitch-container {
+.glitch-container {
     display: flex;
     flex-direction: column;
     margin: 50px auto
-  }
-  
-  .stack {
+}
+.stack {
     font-size: 50px;
     display: grid;
     grid-template-columns: 1fr;
@@ -153,9 +143,8 @@ button {
     --animation-duration: 2000ms;
     --first-glitch-color: #ff0000;
     --second-glitch-color: #0000ff;
-  }
-  
-  .stack span {
+ }
+.stack span {
     padding-left: var(--padding-left);
     padding-right: var(--padding-right);
     font-weight: bold;
@@ -167,12 +156,12 @@ button {
     --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
     clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
     animation: var(--open-animation-duration) cubic-bezier(.35,.21,.5,1.24) 1 backwards calc(var(--index) * 220ms) stack, var(--animation-duration) ease infinite 2s alternate-reverse glitch;
-  }
+}
   
-  .stack span:nth-child(odd) { --glitch-translate: 8px; }
-  .stack span:nth-child(even) { --glitch-translate: -8px; }
+.stack span:nth-child(odd) { --glitch-translate: 8px; }
+.stack span:nth-child(even) { --glitch-translate: -8px; }
   
-  @keyframes stack {
+@keyframes stack {
     0% {
       opacity: 0;
       transform: translateX(-50%);
@@ -190,9 +179,8 @@ button {
     100% {
       text-shadow: none;
     }
-  }
-  
-  @keyframes glitch {
+}
+@keyframes glitch {
     0% {
       text-shadow: -3px 4px 0 var(--first-glitch-color), 3px -4px 0 var(--second-glitch-color);
       transform: translate(var(--glitch-translate));
@@ -201,4 +189,29 @@ button {
       text-shadow: 3px -4px 0 var(--first-glitch-color), -3px 4px 0 var(--second-glitch-color);
     }
     6%, 100% {  text-shadow: none; transform: none; }
-  }
+}
+
+
+
+
+.slist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.slist li {
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid rgb(255, 248, 250);
+    background: lavender;
+}
+  
+
+.slist li.hint {
+    border: 1px solid #ffc49a;
+    background: #feffb4;
+}
+.slist li.active {
+    border: 1px solid #ffa5a5;
+    background: #ffdbdb;
+}
