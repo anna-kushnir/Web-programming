@@ -2,11 +2,16 @@ localStorage.setItem("report", "");
 
 let text = document.querySelector("#text");
 let work = document.querySelector("#work");
+let report = document.querySelector("#message");
+let first_block = document.querySelector("#first-box");
+let default_text = first_block.innerHTML;
+let message;
+let time;
 
-let radius = 10;
 let canvas = document.getElementById("anim");
 let context = canvas.getContext("2d");
 
+let radius = 5;
 let x1, y1, x2, y2;
 let color1 = "yellow";
 let color2 = "red";
@@ -21,8 +26,22 @@ let start_button = document.querySelector("#start_btn");
 let reload_button = document.querySelector("#reload_btn");
 
 function play(e) {
+    first_block.innerHTML = default_text;
+    time = new Date();
+    time = (time.getHours() < 10? "0" + time.getHours() : time.getHours()) + ":" + 
+        (time.getMinutes() < 10? "0" + time.getMinutes() : time.getMinutes()) + ":" + 
+        (time.getSeconds() < 10? "0" + time.getSeconds() : time.getSeconds());
+    message = `"PLAY" button pressed.\n`;
+    localStorage.setItem("report", time + " - " + message + time + " - " + `The "work" area is open.\n`);
+    report.innerText = message;
+
     text.style.display = "none";
     work.style.display = "flex";
+    start_button.disabled = false;
+    start_button.style.display = "inline";
+    reload_button.style.display = "none";
+    play_button.disabled = true;
+    
     context.clearRect(0, 0, canvas.width, canvas.height);
     x1 = (Math.floor(Math.random() * (canvas.width - radius * 2)) + radius);
     y1 = (Math.floor(Math.random() * (canvas.height - radius * 2)) + radius);
@@ -34,8 +53,24 @@ function play(e) {
 play_button.addEventListener("click", play);
 
 function close(e) {
+    time = new Date();
+    time = (time.getHours() < 10? "0" + time.getHours() : time.getHours()) + ":" + 
+        (time.getMinutes() < 10? "0" + time.getMinutes() : time.getMinutes()) + ":" + 
+        (time.getSeconds() < 10? "0" + time.getSeconds() : time.getSeconds());
+    let curr = localStorage.getItem("report") + time + " - " + `"Close" button pressed.\n` + time + " - " + `The "work" area is closed.\n`;
+    localStorage.setItem("report", curr);
+
     text.style.display = "flex";
     work.style.display = "none";
+    play_button.disabled = false;
+    
+    let log = localStorage.getItem("report").split("\n").join("<br>");
+    first_block.innerHTML = `<div class="item" id="first-box-div"><div id="child">${log}</div></div><button id="clear_btn">Clear</button>`;
+    let clear_button = document.querySelector("#clear_btn");
+    clear_button.addEventListener("click", function(e) {
+        first_block.innerHTML = default_text;
+        localStorage.setItem("report", "");
+    })
 }
 close_button.addEventListener("click", close);
 
@@ -48,12 +83,25 @@ function drawBall(x, y, color) {
 }
 
 function draw() {
+    if (work.style.display == "none") {
+        iter1 = iter2 = 0;
+        return;
+    }
     context.clearRect(0, 0, canvas.width, canvas.height);
     drawBall(x1, y1, color1);
     drawBall(x2, y2, color2);
 
     if ((x1 + radius > x2 - radius && x1 - radius < x2 + radius || x1 + radius < x2 - radius && x1 - radius > x2 + radius) && 
         (y1 + radius > y2 - radius && y1 - radius < y2 + radius || y1 + radius < y2 - radius && y1 - radius > y2 + radius)) {
+            time = new Date();
+            time = (time.getHours() < 10? "0" + time.getHours() : time.getHours()) + ":" + 
+                (time.getMinutes() < 10? "0" + time.getMinutes() : time.getMinutes()) + ":" + 
+                (time.getSeconds() < 10? "0" + time.getSeconds() : time.getSeconds());
+            message = `The balls hit each other.\n`;
+            let curr = localStorage.getItem("report") + time + " - " + message;
+            localStorage.setItem("report", curr);
+            report.innerText = message;
+            
             start_button.style.display = "none";
             reload_button.style.display = "inline";
             iter1 = iter2 = 0;
@@ -82,6 +130,16 @@ function draw() {
     }
     
     if (dx1 != 0) {
+        if (x1 - radius < 0 || x1 + radius > canvas.width) {
+            time = new Date();
+            time = (time.getHours() < 10? "0" + time.getHours() : time.getHours()) + ":" + 
+                (time.getMinutes() < 10? "0" + time.getMinutes() : time.getMinutes()) + ":" + 
+                (time.getSeconds() < 10? "0" + time.getSeconds() : time.getSeconds());
+            message = `The yellow ball hit the vertical wall.\n`;
+            let curr = localStorage.getItem("report") + time + " - " + message;
+            localStorage.setItem("report", curr);
+            report.innerText = message;
+        }
         if (x1 - radius < 0) {
             dx1 = -dx1;
             x1 = 2 * radius - x1;
@@ -95,6 +153,16 @@ function draw() {
         }
     }
     else if (dy1 != 0) {
+        if (y1 - radius < 0 || y1 + radius > canvas.height) {
+            time = new Date();
+            time = (time.getHours() < 10? "0" + time.getHours() : time.getHours()) + ":" + 
+                (time.getMinutes() < 10? "0" + time.getMinutes() : time.getMinutes()) + ":" + 
+                (time.getSeconds() < 10? "0" + time.getSeconds() : time.getSeconds());
+            message = `The yellow ball hit the horizontal wall.\n`;
+            let curr = localStorage.getItem("report") + time + " - " + message;
+            localStorage.setItem("report", curr);
+            report.innerText = message;
+        }
         if (y1 - radius < 0) {
             dy1 = -dy1;
             y1 = 2 * radius - y1;
@@ -108,6 +176,16 @@ function draw() {
         }
     }
     if (dx2 != 0) {
+        if (x2 - radius < 0 || x2 + radius > canvas.width) {
+            time = new Date();
+            time = (time.getHours() < 10? "0" + time.getHours() : time.getHours()) + ":" + 
+                (time.getMinutes() < 10? "0" + time.getMinutes() : time.getMinutes()) + ":" + 
+                (time.getSeconds() < 10? "0" + time.getSeconds() : time.getSeconds());
+            message = `The red ball hit the vertical wall.\n`;
+            let curr = localStorage.getItem("report") + time + " - " + message;
+            localStorage.setItem("report", curr);
+            report.innerText = message;
+        }
         if (x2 - radius < 0) {
             dx2 = -dx2;
             x2 = 2 * radius - x2;
@@ -121,6 +199,16 @@ function draw() {
         }
     }
     else if (dy2 != 0) {
+        if (y2 - radius < 0 || y2 + radius > canvas.height) {
+            time = new Date();
+            time = (time.getHours() < 10? "0" + time.getHours() : time.getHours()) + ":" + 
+                (time.getMinutes() < 10? "0" + time.getMinutes() : time.getMinutes()) + ":" + 
+                (time.getSeconds() < 10? "0" + time.getSeconds() : time.getSeconds());
+            message = `The red ball hit the horizontal wall.\n`;
+            let curr = localStorage.getItem("report") + time + " - " + message;
+            localStorage.setItem("report", curr);
+            report.innerText = message;
+        }
         if (y2 - radius < 0) {
             dy2 = -dy2;
             y2 = 2 * radius - y2;
@@ -140,12 +228,31 @@ function draw() {
     anim = window.requestAnimationFrame(draw);
 }
 
-start_button.addEventListener("click", function(e) {
+function start(e) {
+    time = new Date();
+    time = (time.getHours() < 10? "0" + time.getHours() : time.getHours()) + ":" + 
+        (time.getMinutes() < 10? "0" + time.getMinutes() : time.getMinutes()) + ":" + 
+        (time.getSeconds() < 10? "0" + time.getSeconds() : time.getSeconds());
+    message = `"Start" button pressed.\n`;
+    let curr = localStorage.getItem("report") + time + " - " + message;
+    localStorage.setItem("report", curr);
+    report.innerText = message;
+
     start_button.disabled = true;
     anim = window.requestAnimationFrame(draw);
-});
+}
+start_button.addEventListener("click", start);
 
 function reload(e) {
+    time = new Date();
+    time = (time.getHours() < 10? "0" + time.getHours() : time.getHours()) + ":" + 
+        (time.getMinutes() < 10? "0" + time.getMinutes() : time.getMinutes()) + ":" + 
+        (time.getSeconds() < 10? "0" + time.getSeconds() : time.getSeconds());
+    message = `"Reload" button pressed.\n`;
+    let curr = localStorage.getItem("report") + time + " - " + message;
+    localStorage.setItem("report", curr);
+    report.innerText = message;
+
     context.clearRect(0, 0, canvas.width, canvas.height);
     x1 = (Math.floor(Math.random() * (canvas.width - radius * 2)) + radius);
     y1 = (Math.floor(Math.random() * (canvas.height - radius * 2)) + radius);
