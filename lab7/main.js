@@ -25,14 +25,27 @@ let close_button = document.querySelector("#close_btn")
 let start_button = document.querySelector("#start_btn");
 let reload_button = document.querySelector("#reload_btn");
 
-function play(e) {
-    first_block.innerHTML = default_text;
+function getTime() {
     time = new Date();
     time = (time.getHours() < 10? "0" + time.getHours() : time.getHours()) + ":" + 
         (time.getMinutes() < 10? "0" + time.getMinutes() : time.getMinutes()) + ":" + 
         (time.getSeconds() < 10? "0" + time.getSeconds() : time.getSeconds());
+    return time;
+}
+function initializeCanvas() {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    x1 = (Math.floor(Math.random() * (canvas.width - radius * 2)) + radius);
+    y1 = (Math.floor(Math.random() * (canvas.height - radius * 2)) + radius);
+    x2 = (Math.floor(Math.random() * (canvas.width - radius * 2)) + radius);
+    y2 = (Math.floor(Math.random() * (canvas.height - radius * 2)) + radius);
+    drawBall(x1, y1, color1);
+    drawBall(x2, y2, color2);
+}
+
+function play(e) {
+    first_block.innerHTML = default_text;
     message = `"PLAY" button pressed.\n`;
-    localStorage.setItem("report", time + " - " + message + time + " - " + `The "work" area is open.\n`);
+    localStorage.setItem("report", getTime() + " - " + message + getTime() + " - " + `The "work" area is open.\n`);
     report.innerText = message;
 
     text.style.display = "none";
@@ -42,22 +55,12 @@ function play(e) {
     reload_button.style.display = "none";
     play_button.disabled = true;
     
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    x1 = (Math.floor(Math.random() * (canvas.width - radius * 2)) + radius);
-    y1 = (Math.floor(Math.random() * (canvas.height - radius * 2)) + radius);
-    x2 = (Math.floor(Math.random() * (canvas.width - radius * 2)) + radius);
-    y2 = (Math.floor(Math.random() * (canvas.height - radius * 2)) + radius);
-    drawBall(x1, y1, color1);
-    drawBall(x2, y2, color2);
+    initializeCanvas();
 }
 play_button.addEventListener("click", play);
 
 function close(e) {
-    time = new Date();
-    time = (time.getHours() < 10? "0" + time.getHours() : time.getHours()) + ":" + 
-        (time.getMinutes() < 10? "0" + time.getMinutes() : time.getMinutes()) + ":" + 
-        (time.getSeconds() < 10? "0" + time.getSeconds() : time.getSeconds());
-    let curr = localStorage.getItem("report") + time + " - " + `"Close" button pressed.\n` + time + " - " + `The "work" area is closed.\n`;
+    let curr = localStorage.getItem("report") + getTime() + " - " + `"Close" button pressed.\n` + getTime() + " - " + `The "work" area is closed.\n`;
     localStorage.setItem("report", curr);
 
     text.style.display = "flex";
@@ -93,12 +96,8 @@ function draw() {
 
     if ((x1 + radius > x2 - radius && x1 - radius < x2 + radius || x1 + radius < x2 - radius && x1 - radius > x2 + radius) && 
         (y1 + radius > y2 - radius && y1 - radius < y2 + radius || y1 + radius < y2 - radius && y1 - radius > y2 + radius)) {
-            time = new Date();
-            time = (time.getHours() < 10? "0" + time.getHours() : time.getHours()) + ":" + 
-                (time.getMinutes() < 10? "0" + time.getMinutes() : time.getMinutes()) + ":" + 
-                (time.getSeconds() < 10? "0" + time.getSeconds() : time.getSeconds());
             message = `The balls hit each other.\n`;
-            let curr = localStorage.getItem("report") + time + " - " + message;
+            let curr = localStorage.getItem("report") + getTime() + " - " + message;
             localStorage.setItem("report", curr);
             report.innerText = message;
             
@@ -131,12 +130,8 @@ function draw() {
     
     if (dx1 != 0) {
         if (x1 - radius < 0 || x1 + radius > canvas.width) {
-            time = new Date();
-            time = (time.getHours() < 10? "0" + time.getHours() : time.getHours()) + ":" + 
-                (time.getMinutes() < 10? "0" + time.getMinutes() : time.getMinutes()) + ":" + 
-                (time.getSeconds() < 10? "0" + time.getSeconds() : time.getSeconds());
             message = `The yellow ball hit the vertical wall.\n`;
-            let curr = localStorage.getItem("report") + time + " - " + message;
+            let curr = localStorage.getItem("report") + getTime() + " - " + message;
             localStorage.setItem("report", curr);
             report.innerText = message;
         }
@@ -154,12 +149,8 @@ function draw() {
     }
     else if (dy1 != 0) {
         if (y1 - radius < 0 || y1 + radius > canvas.height) {
-            time = new Date();
-            time = (time.getHours() < 10? "0" + time.getHours() : time.getHours()) + ":" + 
-                (time.getMinutes() < 10? "0" + time.getMinutes() : time.getMinutes()) + ":" + 
-                (time.getSeconds() < 10? "0" + time.getSeconds() : time.getSeconds());
             message = `The yellow ball hit the horizontal wall.\n`;
-            let curr = localStorage.getItem("report") + time + " - " + message;
+            let curr = localStorage.getItem("report") + getTime() + " - " + message;
             localStorage.setItem("report", curr);
             report.innerText = message;
         }
@@ -177,12 +168,8 @@ function draw() {
     }
     if (dx2 != 0) {
         if (x2 - radius < 0 || x2 + radius > canvas.width) {
-            time = new Date();
-            time = (time.getHours() < 10? "0" + time.getHours() : time.getHours()) + ":" + 
-                (time.getMinutes() < 10? "0" + time.getMinutes() : time.getMinutes()) + ":" + 
-                (time.getSeconds() < 10? "0" + time.getSeconds() : time.getSeconds());
             message = `The red ball hit the vertical wall.\n`;
-            let curr = localStorage.getItem("report") + time + " - " + message;
+            let curr = localStorage.getItem("report") + getTime() + " - " + message;
             localStorage.setItem("report", curr);
             report.innerText = message;
         }
@@ -200,12 +187,8 @@ function draw() {
     }
     else if (dy2 != 0) {
         if (y2 - radius < 0 || y2 + radius > canvas.height) {
-            time = new Date();
-            time = (time.getHours() < 10? "0" + time.getHours() : time.getHours()) + ":" + 
-                (time.getMinutes() < 10? "0" + time.getMinutes() : time.getMinutes()) + ":" + 
-                (time.getSeconds() < 10? "0" + time.getSeconds() : time.getSeconds());
             message = `The red ball hit the horizontal wall.\n`;
-            let curr = localStorage.getItem("report") + time + " - " + message;
+            let curr = localStorage.getItem("report") + getTime() + " - " + message;
             localStorage.setItem("report", curr);
             report.innerText = message;
         }
@@ -229,12 +212,8 @@ function draw() {
 }
 
 function start(e) {
-    time = new Date();
-    time = (time.getHours() < 10? "0" + time.getHours() : time.getHours()) + ":" + 
-        (time.getMinutes() < 10? "0" + time.getMinutes() : time.getMinutes()) + ":" + 
-        (time.getSeconds() < 10? "0" + time.getSeconds() : time.getSeconds());
     message = `"Start" button pressed.\n`;
-    let curr = localStorage.getItem("report") + time + " - " + message;
+    let curr = localStorage.getItem("report") + getTime() + " - " + message;
     localStorage.setItem("report", curr);
     report.innerText = message;
 
@@ -244,24 +223,15 @@ function start(e) {
 start_button.addEventListener("click", start);
 
 function reload(e) {
-    time = new Date();
-    time = (time.getHours() < 10? "0" + time.getHours() : time.getHours()) + ":" + 
-        (time.getMinutes() < 10? "0" + time.getMinutes() : time.getMinutes()) + ":" + 
-        (time.getSeconds() < 10? "0" + time.getSeconds() : time.getSeconds());
     message = `"Reload" button pressed.\n`;
-    let curr = localStorage.getItem("report") + time + " - " + message;
+    let curr = localStorage.getItem("report") + getTime() + " - " + message;
     localStorage.setItem("report", curr);
     report.innerText = message;
-
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    x1 = (Math.floor(Math.random() * (canvas.width - radius * 2)) + radius);
-    y1 = (Math.floor(Math.random() * (canvas.height - radius * 2)) + radius);
-    x2 = (Math.floor(Math.random() * (canvas.width - radius * 2)) + radius);
-    y2 = (Math.floor(Math.random() * (canvas.height - radius * 2)) + radius);
-    drawBall(x1, y1, color1);
-    drawBall(x2, y2, color2);
+    
     start_button.disabled = false;
     start_button.style.display = "inline";
     reload_button.style.display = "none";
+
+    initializeCanvas();
 }
 reload_button.addEventListener("click", reload);
