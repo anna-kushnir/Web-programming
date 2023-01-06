@@ -21,6 +21,14 @@ ul {
     margin: 2;
     padding: 0;
 }
+button {
+    background-color: #f1d9fc;
+    border: 2px solid #000000;
+    padding: 7px 15px;
+    margin: 10px 0;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
 
 .container {
     display: grid;
@@ -31,7 +39,6 @@ ul {
     padding: 3px;
     justify-content: center;
 }
-
 .item {
     background-color: #e6e6fa;
     color: #6712b6;
@@ -40,6 +47,7 @@ ul {
     align-items: center;
     border: 2px dotted #000000;
 }
+
 #first-box {
     grid-row: 1/3;
 }
@@ -105,25 +113,16 @@ ul {
     margin-right: 5%;
 }
 
-button {
-    background-color: #f1d9fc;
-    border: 2px solid #000000;
-    padding: 7px 15px;
-    margin: 10px 0;
-    letter-spacing: 2px;
-    cursor: pointer;
-}
-
 
 #work {
     display: none;
     width: 100%;
     height: 100%;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 #controls {
-    height: 50px;
     display: flex;
     justify-content: space-between;
     margin: 0 2%;
@@ -139,4 +138,8 @@ button {
     height: calc(100% - 50px);
     border: 5px solid green;
     align-self: center;
+    background-image: url(images/texture.png);
+}
+#reload_btn {
+    display: none;
 }
