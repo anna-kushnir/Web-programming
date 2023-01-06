@@ -56,6 +56,7 @@ function draw() {
         (y1 + radius > y2 - radius && y1 - radius < y2 + radius || y1 + radius < y2 - radius && y1 - radius > y2 + radius)) {
             start_button.style.display = "none";
             reload_button.style.display = "inline";
+            iter1 = iter2 = 0;
         return;
     }
     
