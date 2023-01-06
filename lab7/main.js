@@ -7,10 +7,7 @@ let radius = 10;
 let canvas = document.getElementById("anim");
 let context = canvas.getContext("2d");
 
-let x1 = (Math.floor(Math.random() * (canvas.width - radius * 2)) + radius);
-let y1 = (Math.floor(Math.random() * (canvas.height - radius * 2)) + radius);
-let x2 = (Math.floor(Math.random() * (canvas.width - radius * 2)) + radius);
-let y2 = (Math.floor(Math.random() * (canvas.height - radius * 2)) + radius);
+let x1, y1, x2, y2;
 let color1 = "yellow";
 let color2 = "red";
 let step = 2;
@@ -27,6 +24,10 @@ function play(e) {
     text.style.display = "none";
     work.style.display = "flex";
     context.clearRect(0, 0, canvas.width, canvas.height);
+    x1 = (Math.floor(Math.random() * (canvas.width - radius * 2)) + radius);
+    y1 = (Math.floor(Math.random() * (canvas.height - radius * 2)) + radius);
+    x2 = (Math.floor(Math.random() * (canvas.width - radius * 2)) + radius);
+    y2 = (Math.floor(Math.random() * (canvas.height - radius * 2)) + radius);
     drawBall(x1, y1, color1);
     drawBall(x2, y2, color2);
 }
