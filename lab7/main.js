@@ -40,6 +40,10 @@ function initializeCanvas() {
     y2 = (Math.floor(Math.random() * (canvas.height - radius * 2)) + radius);
     drawBall(x1, y1, color1);
     drawBall(x2, y2, color2);
+
+    start_button.disabled = false;
+    start_button.style.display = "inline";
+    reload_button.style.display = "none";
 }
 
 function play(e) {
@@ -50,14 +54,21 @@ function play(e) {
 
     text.style.display = "none";
     work.style.display = "flex";
-    start_button.disabled = false;
-    start_button.style.display = "inline";
-    reload_button.style.display = "none";
     play_button.disabled = true;
     
     initializeCanvas();
 }
 play_button.addEventListener("click", play);
+
+function outputReport() {
+    let log = localStorage.getItem("report").split("\n").join("<br>");
+    first_block.innerHTML = `<div class="item" id="first-box-div"><div id="child">${log}</div></div><button id="clear_btn">Clear</button>`;
+    let clear_button = document.querySelector("#clear_btn");
+    clear_button.addEventListener("click", function(e) {
+        first_block.innerHTML = default_text;
+        localStorage.setItem("report", "");
+    })
+}
 
 function close(e) {
     let curr = localStorage.getItem("report") + getTime() + " - " + `"Close" button pressed.\n` + getTime() + " - " + `The "work" area is closed.\n`;
@@ -67,13 +78,7 @@ function close(e) {
     work.style.display = "none";
     play_button.disabled = false;
     
-    let log = localStorage.getItem("report").split("\n").join("<br>");
-    first_block.innerHTML = `<div class="item" id="first-box-div"><div id="child">${log}</div></div><button id="clear_btn">Clear</button>`;
-    let clear_button = document.querySelector("#clear_btn");
-    clear_button.addEventListener("click", function(e) {
-        first_block.innerHTML = default_text;
-        localStorage.setItem("report", "");
-    })
+    outputReport();
 }
 close_button.addEventListener("click", close);
 
@@ -227,10 +232,6 @@ function reload(e) {
     let curr = localStorage.getItem("report") + getTime() + " - " + message;
     localStorage.setItem("report", curr);
     report.innerText = message;
-    
-    start_button.disabled = false;
-    start_button.style.display = "inline";
-    reload_button.style.display = "none";
 
     initializeCanvas();
 }
