@@ -8,14 +8,15 @@ let default_text = first_block.innerHTML;
 let message;
 let time;
 
-let canvas = document.getElementById("anim");
-let context = canvas.getContext("2d");
+let animdiv = document.getElementById("anim"),
+    canvas = document.querySelector("#anim canvas"),
+    context = canvas.getContext("2d");
 
-let radius = 5;
+let radius = 10;
 let x1, y1, x2, y2;
 let color1 = "yellow";
 let color2 = "red";
-let step = 2;
+let step = 3;
 let dx1 = 5, dx2 = 5, dy1 = 0, dy2 = 0;
 let iter1 = 0, iter2 = 0;
 let anim;
@@ -33,6 +34,10 @@ function getTime() {
     return time;
 }
 function initializeCanvas() {
+    canvas.height = 0;
+    canvas.width = 0;
+    canvas.height = animdiv.clientHeight - 4;
+    canvas.width = animdiv.clientWidth;
     context.clearRect(0, 0, canvas.width, canvas.height);
     x1 = (Math.floor(Math.random() * (canvas.width - radius * 2)) + radius);
     y1 = (Math.floor(Math.random() * (canvas.height - radius * 2)) + radius);
@@ -95,6 +100,10 @@ function draw() {
         iter1 = iter2 = 0;
         return;
     }
+    canvas.height = 0;
+    canvas.width = 0;
+    canvas.height = animdiv.clientHeight - 4;
+    canvas.width = animdiv.clientWidth;
     context.clearRect(0, 0, canvas.width, canvas.height);
     drawBall(x1, y1, color1);
     drawBall(x2, y2, color2);
