@@ -63,6 +63,7 @@ button {
 #child {
     overflow-y: auto;
     text-align: left;
+    margin-top: 20px;
 }
 #clear_btn {
     align-self: flex-end;
