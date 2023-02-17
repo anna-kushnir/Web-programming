@@ -1,3 +1,8 @@
+## Laboratory work on the discipline "Web-programming".
+#### Second year, first semester.
+> Kushnir Hanna. IP-12
+
+
 Головна сторінка лабораторної роботи №1:
 https://anna-kushnir.github.io/Web-programming/lab1/
 
