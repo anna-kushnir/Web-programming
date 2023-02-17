@@ -1,6 +1,6 @@
 ## Laboratory work on the discipline "Web-programming".
 #### Second year, first semester.
-> Kushnir Hanna. IP-12
+> Hanna Kushnir. IP-12
 
 
 The main page of laboratory work #1:
