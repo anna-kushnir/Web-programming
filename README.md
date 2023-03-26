@@ -2,6 +2,7 @@
 #### Second year, first semester.
 > Hanna Kushnir. IP-12
 
+[Navigation](https://anna-kushnir.github.io/Web-programming/)
 
 [The main page of laboratory work #7.](https://anna-kushnir.github.io/Web-programming/lab7/)
 
